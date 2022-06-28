@@ -30,8 +30,9 @@ import '../../../../widgets/titlebar.dart';
 import '../../../select_contacts/select_contacts_logic.dart';
 
 class PatientDetailPage extends StatefulWidget {
-  PatientDetailPage({Key? key,this.id = ""}) : super(key: key);
+  PatientDetailPage({Key? key,this.id = "",this.scence = ""}) : super(key: key);
   var id = "";
+  var scence;
   @override
   State<PatientDetailPage> createState()=>_PatientDetailPageState();
 }
@@ -45,7 +46,7 @@ class _PatientDetailPageState extends State<PatientDetailPage>{
   }
 
 
-  var logic = Get.find<PatientDetailLogic>();
+  // var logic = Get.find<PatientDetailLogic>();
   var conversationLogic = Get.find<ConversationLogic>();
 
   var nameController = TextEditingController();
@@ -128,17 +129,20 @@ class _PatientDetailPageState extends State<PatientDetailPage>{
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // Align(
-          //     alignment: Alignment.centerLeft,
-          //     child: InkWell(child: Padding(child: Image.asset(
-          //       ImageRes.ic_back,
-          //       width: 12.w,
-          //       height: 20.h,
-          //     ),padding: EdgeInsets.only(left: 8.w,right: 20.w,top: 5.h,bottom: 5.w),),onTap: (){
-          //       //返回
-          //       // logic.back();
-          //     },
-          //     )),
+          if(widget.scence == "chat")
+          Align(
+              alignment: Alignment.centerLeft,
+              child: InkWell(child: Padding(child: Image.asset(
+                ImageRes.ic_back,
+                width: 12.w,
+                height: 20.h,
+              ),padding: EdgeInsets.only(left: 8.w,right: 20.w,top: 5.h,bottom: 5.w),),onTap: (){
+                //返回
+                if(widget.scence == "chat"){
+                  conversationLogic.back();
+                }
+              },
+              )),
           Align(
             alignment: Alignment.center,
             child:  Text("患者详情",textAlign: TextAlign.center,style: PageStyle.ts_333333_18sp),

@@ -41,6 +41,12 @@ class _ChatListViewState extends State<ChatListView> {
   // bool _fillFirstPage() => (widget.itemCount ?? 0) >= widget.pageSize;
 
   @override
+  void dispose() {
+    print("=====================ChatListView dispose ====================");
+    super.dispose();
+  }
+
+  @override
   void initState() {
     /// 默认加载
     ///

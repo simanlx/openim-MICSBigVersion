@@ -5,10 +5,14 @@ import 'package:flutter_openim_widget/flutter_openim_widget.dart';
 import 'package:get/get.dart';
 import 'package:mics_big_version/src/core/controller/app_controller.dart';
 import 'package:mics_big_version/src/core/controller/im_controller.dart';
+import 'package:mics_big_version/src/models/zskjs/YlbwListBean.dart';
+import 'package:mics_big_version/src/pages/bkparts/patient_manage/patient_detail/patient_detail_logic.dart';
+import 'package:mics_big_version/src/pages/bkparts/patient_manage/patient_detail/patient_detail_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_logic.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_view.dart';
 import 'package:mics_big_version/src/pages/home/home_logic.dart';
 import 'package:mics_big_version/src/pages/home/work_bench/work_bench_logic.dart';
+import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_detail/MedicalMemoDetailPage.dart';
 import 'package:mics_big_version/src/res/strings.dart';
 import 'package:mics_big_version/src/routes/app_navigator.dart';
 import 'package:mics_big_version/src/routes/app_pages.dart';
@@ -718,5 +722,29 @@ class ConversationLogic extends GetxController {
         IMWidget.showToast("操作完成");
       });
     }
+  }
+
+  void toPatientDetail(String string) {
+    // stackList.clear();
+    // Get.delete<PatientDetailLogic>(tag: "chat");
+    // Get.put<PatientDetailLogic>(PatientDetailLogic(),tag: "chat");
+    var patientPage = PatientDetailPage(key: UniqueKey(),id: string,scence: "chat");
+    stackList.add(patientPage);
+  }
+
+  void back() {
+    if (stackList.length>1) {
+      var logic = Get.find<ChatLogic>();
+      if (stackList.length == 2) {
+        logic.focusNode = FocusNode();
+        logic.inputCtrl = TextEditingController();
+      }
+      stackList.removeAt(stackList.length-1);
+    }
+  }
+
+  void toYlbwDetail(YlbwListBeanData noteItem) {
+    var ylbwDetail = MedicalMemoDetailPage(rawData: noteItem,scence: "chat");
+    stackList.add(ylbwDetail);
   }
 }

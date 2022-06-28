@@ -14,6 +14,7 @@ import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:mics_big_version/src/common/apis.dart';
 import 'package:mics_big_version/src/models/zskjs/YlbwElementNew.dart';
 import 'package:mics_big_version/src/models/zskjs/YlbwType.dart';
+import 'package:mics_big_version/src/pages/home/conversation/conversation_logic.dart';
 import 'package:mics_big_version/src/routes/app_pages.dart';
 import 'package:mics_big_version/src/utils/EventBusBkrs.dart';
 import 'package:mics_big_version/src/utils/im_util.dart';
@@ -32,10 +33,11 @@ import '../../../select_contacts/select_contacts_logic.dart';
 import 'package:dotted_border/dotted_border.dart';
 
 class MedicalMemoDetailPage extends StatefulWidget {
-  MedicalMemoDetailPage({Key? key,this.rawData,this.autoRecord=false}) : super(key: key);
+  MedicalMemoDetailPage({Key? key,this.rawData,this.autoRecord=false,this.scence = ""}) : super(key: key);
 
   YlbwListBeanData? rawData;
   bool autoRecord;
+  var scence;
 
 
   @override
@@ -291,6 +293,9 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
   var popControl = CustomPopupMenuController();
   var savedId = "";
 
+
+  var conversationLogic = Get.find<ConversationLogic>();
+
   Widget buildHead(){
 
     return  Container(
@@ -310,22 +315,25 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
       child: Stack(
         // alignment: Alignment.center,
         children: [
-          // Align(
-          //     alignment: Alignment.centerLeft,
-          //     child: InkWell(child: Padding(child: Image.asset(
-          //       ImageRes.ic_back,
-          //       width: 12.w,
-          //       height: 20.h,
-          //     ),padding: EdgeInsets.only(left: 8.w,right: 20.w,top: 5.h,bottom: 5.w)),onTap: (){
-          //       //返回
-          //       if(isRecording){
-          //         IMWidget.showToast("正在录音,请完成录音后再尝试");
-          //         return;
-          //       }
-          //       //todo 保存数据
-          //       // logic.back();
-          //     },
-          //     )),
+          if(widget.scence == "chat")
+            Align(
+                alignment: Alignment.centerLeft,
+                child: InkWell(child: Padding(child: Image.asset(
+                  ImageRes.ic_back,
+                  width: 12.w,
+                  height: 20.h,
+                ),padding: EdgeInsets.only(left: 8.w,right: 20.w,top: 5.h,bottom: 5.w)),onTap: (){
+                  //返回
+                  if(isRecording){
+                    IMWidget.showToast("正在录音,请完成录音后再尝试");
+                    return;
+                  }
+                  if(widget.scence == "chat"){
+                    conversationLogic.back();
+                  }
+                },
+                )),
+
           Align(
             alignment: Alignment.center,
             child:  Text(StrRes.medicalMemo,textAlign: TextAlign.center,style: PageStyle.ts_333333_16sp),

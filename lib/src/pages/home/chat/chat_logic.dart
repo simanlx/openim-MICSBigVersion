@@ -43,8 +43,8 @@ class ChatLogic extends GetxController {
   final imLogic = Get.find<IMController>();
   final conversationLogic = Get.find<ConversationLogic>();
   final cacheLogic = Get.find<CacheController>();
-  final inputCtrl = TextEditingController();
-  final focusNode = FocusNode();
+  var inputCtrl = TextEditingController();
+  var focusNode = FocusNode();
   final scrollController = ScrollController();
 
   final refreshController = RefreshController();
@@ -1998,11 +1998,14 @@ class ChatLogic extends GetxController {
 
   //去患者详情
   void toHzxq(String string) {
-    Get.toNamed(AppRoutes.PATIENT_DETAIL,arguments: {"id":string});
+    // Get.toNamed(AppRoutes.PATIENT_DETAIL,arguments: {"id":string});
+    conversationLogic.toPatientDetail(string);
+
   }
 
   void toYlbw(YlbwListBeanData noteItem) {
-    Get.toNamed(AppRoutes.MEDICAL_MEMO_DETAIL,arguments: {"item":noteItem});
+    // Get.toNamed(AppRoutes.MEDICAL_MEMO_DETAIL,arguments: {"item":noteItem});
+    conversationLogic.toYlbwDetail(noteItem);
   }
 
   leftBubbleColor(Message message) {

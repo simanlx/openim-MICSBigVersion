@@ -408,30 +408,39 @@ class IMUtil {
         var map = json.decode(data!);
         var customType = map['customType'];
         var customData = map['data'];
-        switch (customType) {
-          case CustomMessageType.call:
-            var type = map['data']['type'];
-            content =
-                '[${type == 'video' ? StrRes.callVideo : StrRes.callVoice}]';
-            break;
-          case CustomMessageType.custom_emoji:
-            content = '[${StrRes.customEmoji}]';
-            break;
-          case CustomMessageType.tag_message:
-            final text = customData['text'];
-            final duration = customData['duration'];
-            final url = customData['url'];
-            if (text != null) {
-              content = text!;
-            } else if (url != null) {
-              content = '[${StrRes.voice}]';
-            } else {
+        var type = map['type'];
+        if(type.toString() == "patient"){
+          //患者详情
+          content="分享[患者档案]";
+        }else if(type.toString() == "note"){
+          //医疗备忘
+          content="分享[医疗备忘]";
+        }else{
+          switch (customType) {
+            case CustomMessageType.call:
+              var type = map['data']['type'];
+              content =
+              '[${type == 'video' ? StrRes.callVideo : StrRes.callVoice}]';
+              break;
+            case CustomMessageType.custom_emoji:
+              content = '[${StrRes.customEmoji}]';
+              break;
+            case CustomMessageType.tag_message:
+              final text = customData['text'];
+              final duration = customData['duration'];
+              final url = customData['url'];
+              if (text != null) {
+                content = text!;
+              } else if (url != null) {
+                content = '[${StrRes.voice}]';
+              } else {
+                content = '[${StrRes.unsupportedMessage}]';
+              }
+              break;
+            default:
               content = '[${StrRes.unsupportedMessage}]';
-            }
-            break;
-          default:
-            content = '[${StrRes.unsupportedMessage}]';
-            break;
+              break;
+          }
         }
         break;
       case MessageType.oaNotification:
