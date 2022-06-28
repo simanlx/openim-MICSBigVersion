@@ -156,6 +156,7 @@ class ChatPage extends StatelessWidget {
                   backgroundColor: PageStyle.c_FFFFFF,
                   appBar: EnterpriseTitleBar.chatTitle(
                     height: 34.h,
+                    showTopPadding: false,
                     title: logic.name.value,
                     subTitle: logic.getSubTile(),
                     onClickCallBtn: () => logic.call(),
@@ -305,7 +306,7 @@ class ChatPage extends StatelessWidget {
           // var patientMap = json.decode(patient);
           // var patientID = patientMap["patientID"];
           // var des = patientMap["illnessDesc"];
-          return CustomCardWidget(CustomSureShareDialogType.HZXQ,title,patient.illnessDesc,height: 190.w,timeStr: DateUtil.formatDateMs(time, format: 'yyyy-MM-dd HH:mm:ss'),onClick: (){
+          return CustomCardWidget(CustomSureShareDialogType.HZXQ,title,patient.illnessDesc,height: 190.h,timeStr: DateUtil.formatDateMs(time, format: 'yyyy-MM-dd HH:mm:ss'),onClick: (){
             //进入患者详情页面
             print("患者id是 ${patient.id}");
             logic.toHzxq(patient.id.toString());

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:mics_big_version/src/common/apis.dart';
 import 'package:mics_big_version/src/models/zskjs/YlbwListBean.dart';
 import 'package:mics_big_version/src/pages/home/work_bench/work_bench_logic.dart';
-import 'package:mics_big_version/src/routes/app_pages.dart';
+import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_detail/MedicalMemoDetailPage.dart';
 import 'package:mics_big_version/src/utils/EventBusBkrs.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -35,7 +35,7 @@ class YlbwMainLogic extends GetxController {
   @override
   void onReady() async{
     //调用接口获取列表
-    getList("");
+    getList("",isFirstLoad: true);
     var a = await OpenIM.iMManager.userManager.getSelfUserInfo();
     nickname.value = a.nickname??"";
     callback = (arg){
@@ -53,7 +53,7 @@ class YlbwMainLogic extends GetxController {
   var list = <YlbwListBeanData>[].obs;
   var allCount = 0.obs;
 
-  void getList(String type_id) async{
+  void getList(String type_id,{bool isFirstLoad = false}) async{
     pageIndex = 1;
     await Apis.getYlbwList(pageIndex,pageSize,keyword,type_id).then((value) => {
       isLoaded = true,
@@ -61,6 +61,9 @@ class YlbwMainLogic extends GetxController {
         allCount.value =  value.total??0,
         list.clear(),
         list.addAll(value.data!),
+        if(value.data!.length>0 && isFirstLoad){
+          toDetail(value.data![0])
+        }
       }
     });
     controller.refreshCompleted(resetFooterState: true);
@@ -90,17 +93,13 @@ class YlbwMainLogic extends GetxController {
   }
 
   void toAdd(){
-    // AppNavigator.startYlbwDetail();
-    // Get.toNamed(AppRoutes.MEDICAL_MEMO_DETAIL,arguments: {"item":null})?.then((value){
-    //   // getList("","");
-    // });
+    stackList.clear();
+    stackList.add(new MedicalMemoDetailPage(key: UniqueKey()));
   }
 
   void toDetail(YlbwListBeanData item) {
-    // AppNavigator.startYlbwDetail(item: item);
-    Get.toNamed(AppRoutes.MEDICAL_MEMO_DETAIL,arguments: {"item":item})?.then((value){
-      // getList("","");
-    });
+    stackList.clear();
+    stackList.add(new MedicalMemoDetailPage(key: UniqueKey(),rawData: item));
   }
   deleteItem(YlbwListBeanData info) {
     print("删除第一个info ${info.id}");

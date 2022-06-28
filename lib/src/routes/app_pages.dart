@@ -13,6 +13,10 @@ import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_ma
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/search_member/search_member_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_setup_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_setup_view.dart';
+import 'package:mics_big_version/src/pages/home/contacts/group_list/search_group/search_group_binding.dart';
+import 'package:mics_big_version/src/pages/home/contacts/group_list/search_group/search_group_view.dart';
+import 'package:mics_big_version/src/pages/select_contacts/select_contacts_binding.dart';
+import 'package:mics_big_version/src/pages/select_contacts/select_contacts_view.dart';
 import '../pages/add_friend/send_friend_request/send_friend_request_binding.dart';
 import '../pages/add_friend/send_friend_request/send_friend_request_view.dart';
 import '../pages/home/contacts/friend_info/friend_info_binding.dart';
@@ -92,11 +96,11 @@ class AppPages {
     //   page: () => SelectByGroupMemberPage(),
     //   binding: SelectByGroupMemberBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.SELECT_CONTACTS,
-    //   page: () => SelectContactsPage(),
-    //   binding: SelectContactsBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.SELECT_CONTACTS,
+      page: () => SelectContactsPage(),
+      binding: SelectContactsBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.ADD_CONTACTS,
     //   page: () => AddContactsPage(),
@@ -252,11 +256,11 @@ class AppPages {
     //   page: () => SearchFriendPage(),
     //   binding: SearchFriendBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.SEARCH_GROUP,
-    //   page: () => SearchGroupPage(),
-    //   binding: SearchGroupBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.SEARCH_GROUP,
+      page: () => SearchGroupPage(),
+      binding: SearchGroupBinding(),
+    ),
     GetPage(
       name: AppRoutes.SEARCH_MEMBER,
       page: () => SearchMemberPage(),

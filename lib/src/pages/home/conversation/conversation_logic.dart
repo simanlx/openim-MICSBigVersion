@@ -404,8 +404,8 @@ class ConversationLogic extends GetxController {
     // 获取会话信息，若不存在则创建
     conversationInfo ??=
     await OpenIM.iMManager.conversationManager.getOneConversation(
-      sourceID: userID == null ? groupID! : userID,
-      sessionType: userID == null ? 2 : 1,
+      sourceID: userID == null || userID.isEmpty ? groupID! : userID,
+      sessionType: userID == null || userID.isEmpty ? 2 : 1,
     );
 
     print("明明 startChat conversationInfo ${json.encode(conversationInfo)}");

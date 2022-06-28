@@ -8,6 +8,8 @@ import 'package:mics_big_version/src/pages/home/contacts/department_friend_list/
 import 'package:mics_big_version/src/pages/home/contacts/frequent_contacts/frequent_contacts_logic.dart';
 import 'package:mics_big_version/src/pages/home/contacts/frequent_contacts/frequent_contacts_view.dart';
 import 'package:mics_big_version/src/pages/home/contacts/friend_list/friend_list_view.dart';
+import 'package:mics_big_version/src/pages/home/contacts/group_list/group_list_logic.dart';
+import 'package:mics_big_version/src/pages/home/contacts/group_list/group_list_view.dart';
 import 'package:mics_big_version/src/routes/app_navigator.dart';
 import 'package:mics_big_version/src/utils/data_persistence.dart';
 import 'department_friend_list/depart_list_friend_view.dart';
@@ -178,6 +180,14 @@ class ContactsLogic extends GetxController {
     if (stackList.length>0) {
       stackList.removeAt(stackList.length-1);
     }
+  }
+
+  void toMyGroup() {
+    stackList.clear();
+    Get.delete<GroupListLogic>();
+    Get.put(GroupListLogic());
+    var page = GroupListPage();
+    stackList.add(page);
   }
 
  // Widget currentPage() {

@@ -86,6 +86,7 @@ class WorkbenchMainPage extends StatelessWidget {
                 var userInfo = logic.list[index];
                 conversationLogic.toChatBigScreenOther(
                   userID: userInfo.userID,
+                  groupID: userInfo.groupID,
                   nickname: userInfo.showName,
                   faceURL: userInfo.faceURL,
                   type: 1,

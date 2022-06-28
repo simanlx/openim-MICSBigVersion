@@ -6,7 +6,7 @@ class VoiceTransferRes {
   VoiceTransferRes({this.status, this.lvsrStatus, this.lvsrData});
 
   VoiceTransferRes.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
+    status = json['status'].toString();
     lvsrStatus = json['lvsr_status'];
     if (json['lvsr_data'] != null) {
       lvsrData = <LvsrData>[];

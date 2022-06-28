@@ -38,7 +38,7 @@ class CustomCardWidget extends StatelessWidget {
         if (null != onClick) onClick!();
       },
       child: Container(
-        height: height??210.w,
+        // height: height??210.w,
         width: width??200.w,
         padding: EdgeInsets.all(10.w),
         decoration: BoxDecoration(
@@ -65,15 +65,16 @@ class CustomCardWidget extends StatelessWidget {
             //
             //   ],),
             // ),
+            SizedBox(height: 5.h,),
             Container(
-                height: 80.h,
+                constraints: BoxConstraints(maxHeight: 80.h),
                 child:
                 Row(children: [
                   Expanded(child: Text(content??"",maxLines: 3,overflow: TextOverflow.ellipsis,textAlign: TextAlign.start,style: TextStyle(color: PageStyle.c_999999)))
 
                 ],),
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 5.h),
             Row(
               children: [
                 Expanded(child: Text(timeStr??"",textAlign: TextAlign.end,style: TextStyle(color: PageStyle.c_999999),))
@@ -81,7 +82,7 @@ class CustomCardWidget extends StatelessWidget {
             ),
             SizedBox(height: 5.h),
             Divider(height: 2,color: PageStyle.c_e8e8e8),
-            SizedBox(height: 10.h),
+            SizedBox(height: 5.h),
             Row(
               children: [
                 Expanded(child: Text(typeStr,textAlign: TextAlign.end,style: TextStyle(color: PageStyle.c_999999)))

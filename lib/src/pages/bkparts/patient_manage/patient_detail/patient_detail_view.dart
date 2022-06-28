@@ -169,7 +169,7 @@ class _PatientDetailPageState extends State<PatientDetailPage>{
                         Get.toNamed(AppRoutes.SELECT_CONTACTS,arguments: {
                           'action': SelAction.MyFORWARD,
                           'patientItem':item,
-                          'sharePath':AppRoutes.PATIENT_DETAIL
+                          'sharePath':AppRoutes.HOME
                         });
 
                       },

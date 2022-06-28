@@ -23,24 +23,26 @@ class CreateGroupInChatSetupPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: PageStyle.c_F6F6F6,
         appBar: EnterpriseTitleBar.back(
+          height: 34.h,
           title: StrRes.launchGroup,
         ),
         body: SafeArea(
-          child: Column(
+          child: SingleChildScrollView(child: Column(
             children: [
               _buildGroupInfoView(),
               _buildGroupMemberView(),
-              Spacer(),
+              // Spacer(),
+              SizedBox(height: 118.h),
               _buildButton(),
             ],
-          ),
+          ),),
         ),
       ),
     );
   }
 
   Widget _buildGroupInfoView() => Container(
-        height: 80.h,
+        height: 50.h,
         padding: EdgeInsets.symmetric(horizontal: 22.w),
         margin: EdgeInsets.only(top: 10.h, bottom: 10.h),
         color: PageStyle.c_FFFFFF,
@@ -49,14 +51,14 @@ class CreateGroupInChatSetupPage extends StatelessWidget {
             Obx(() => logic.avatarUrl.value.isNotEmpty
                 ? AvatarView(
                     url: logic.avatarUrl.value,
-                    size: 44.h,
+                    size: 26.h,
                     onTap: () => logic.setAvatar(),
                   )
                 : ImageButton(
                     onTap: () => logic.setAvatar(),
                     imgStrRes: ImageRes.ic_uploadPhoto,
-                    imgWidth: 44.h,
-                    imgHeight: 44.h,
+                    imgWidth: 26.h,
+                    imgHeight: 26.h,
                   )),
             SizedBox(
               width: 20.w,
@@ -77,7 +79,7 @@ class CreateGroupInChatSetupPage extends StatelessWidget {
       );
 
   Widget _buildGroupMemberView() => Obx(() => Container(
-        height: 140.h,
+        height: 100.h,
         decoration: BoxDecoration(
           color: PageStyle.c_FFFFFF,
           boxShadow: [
@@ -147,7 +149,7 @@ class CreateGroupInChatSetupPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             AvatarView(
-              size: 40.h,
+              size: 26.h,
               url: info.faceURL,
               text: info.nickname,
             ),
@@ -155,7 +157,7 @@ class CreateGroupInChatSetupPage extends StatelessWidget {
               height: 6.h,
             ),
             Container(
-              width: 50.w,
+              width: 100.w,
               alignment: Alignment.center,
               child: Text(
                 info.getShowName(),
@@ -173,8 +175,8 @@ class CreateGroupInChatSetupPage extends StatelessWidget {
           children: [
             Image.asset(
               imgStrRes,
-              width: 40.h,
-              height: 40.h,
+              width: 28.h,
+              height: 28.h,
             ),
             SizedBox(
               height: 6.h,

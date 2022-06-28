@@ -190,11 +190,11 @@ class YlbwMainPage extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 6.h),
                   Row(
                     children: [
                       SizedBox(width: 10.w),
-                      Visibility(visible:picImgUrl.isNotEmpty,child: Padding(child: Image.network(picImgUrl,width: 40.w,height: 40.w,fit: BoxFit.fill),padding: EdgeInsets.only(right: 10.w))),
+                      Visibility(visible:picImgUrl.isNotEmpty,child: Padding(child: Image.network(picImgUrl,width: 30.w,height: 30.w,fit: BoxFit.fill),padding: EdgeInsets.only(right: 10.w))),
                       Expanded(child: Text("${bean.title??""}",style: TextStyle(color: PageStyle.c_333333,overflow: TextOverflow.ellipsis),maxLines: picImgUrl.isNotEmpty?2:1,)),
                       // Container(decoration: BoxDecoration(
                       //     border: Border.all(color: PageStyle.c_3894FF,width: 1.r),
@@ -208,12 +208,12 @@ class YlbwMainPage extends StatelessWidget {
                       SizedBox(width: 10.w),
                     ],
                   ),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 6.h),
                   Row(children: [
                     SizedBox(width: 10.w),
                     Expanded(child: Text("${bean.typeName} | ${logic.nickname} ${bean.createTime}",style: TextStyle(color: PageStyle.c_999999)))
                   ],),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 6.h),
                   Divider(height: 2.h,color: PageStyle.c_e8e8e8)
                 ],
               ),

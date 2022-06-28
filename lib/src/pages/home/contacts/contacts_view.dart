@@ -20,7 +20,7 @@ class ContactsPage extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Obx(() =>
         Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6.r)),color: Colors.red),
+            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6.r)),color: Colors.white),
             child: Row(
               children: [
                 Container(width: 220.w,color: Colors.transparent,child: CustomScrollView(
@@ -54,7 +54,9 @@ class ContactsPage extends StatelessWidget {
                     _buildGroupItem(
                       icon: ImageRes.ic_myGroup,
                       label: StrRes.myGroup,
-                      onTap: () {},
+                      onTap: () {
+                        logic.toMyGroup();
+                      },
                       showUnderline: true,
                     ),
                     _buildGroupItem(

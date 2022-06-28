@@ -31,12 +31,19 @@ class CreateGroupInChatSetupLogic extends GetxController {
       list: memberList.map((e) => GroupMemberRole(userID: e.userID)).toList(),
     );
     print('create group : $info');
-    conversationLogic.startChat(
-      type: 1,
+
+    conversationLogic.toChatBigScreenOther(
       groupID: info.groupID,
       nickname: nameCtrl.text,
       faceURL: avatarUrl.value,
+      type: 1,
     );
+    // conversationLogic.startChat(
+    //   type: 1,
+    //   groupID: info.groupID,
+    //   nickname: nameCtrl.text,
+    //   faceURL: avatarUrl.value,
+    // );
   }
 
   void setAvatar() {

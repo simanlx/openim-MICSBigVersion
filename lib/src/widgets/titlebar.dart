@@ -19,6 +19,7 @@ class EnterpriseTitleBar extends StatelessWidget
     this.backgroundColor,
     this.topPadding = 0.0,
     this.showShadow = true,
+    this.showTopPadding = true
   }) : super(key: key);
   final double? height;
   final Widget? left;
@@ -27,6 +28,7 @@ class EnterpriseTitleBar extends StatelessWidget
   final Color? backgroundColor;
   final double topPadding;
   final bool showShadow;
+  final bool showTopPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +38,8 @@ class EnterpriseTitleBar extends StatelessWidget
       left: left,
       center: center,
       right: right,
-      height: height! + data.padding.top,
-      topPadding: data.padding.top,
+      height: showTopPadding ? height! + data.padding.top : height!,
+      topPadding:showTopPadding ? data.padding.top : 0,
       showShadow: showShadow,
     );
   }
@@ -113,10 +115,12 @@ class EnterpriseTitleBar extends StatelessWidget
     Color? backgroundColor,
     List<Widget> actions = const [],
     Function()? onTap,
+    bool showTopPadding = true,
     bool showBackArrow = true,
     bool showShadow = true,
   })  : height = height ?? 44.h,
         topPadding = 0,
+        showTopPadding = showTopPadding,
         // height = height ?? 84.h,
         // topPadding = 40.h,
         backgroundColor = backgroundColor,
@@ -129,7 +133,7 @@ class EnterpriseTitleBar extends StatelessWidget
                     behavior: HitTestBehavior.translucent,
                     child: Container(
                       padding: EdgeInsets.only(left: 10.w, right: 10.w),
-                      height: 44.h,
+                      height: height ?? 44.h,
                       child: Center(
                         child: null != leftTile
                             ? Text(
@@ -182,6 +186,7 @@ class EnterpriseTitleBar extends StatelessWidget
   })  : //height = 124.h,
         // topPadding = 53.h,
         height = 71.h,
+        showTopPadding = true,
         topPadding = 0,
         backgroundColor = null,
         left = null,
@@ -237,10 +242,12 @@ class EnterpriseTitleBar extends StatelessWidget
     bool online = false,
     bool showCallButton = true,
     bool showMoreButton = true,
+    bool showTopPadding = true,
   })  : //height = height ?? 84.h,
         // topPadding = 40.h,
         height = height ?? 44.h,
         topPadding = 0,
+        showTopPadding = showTopPadding,
         backgroundColor = backgroundColor,
         showShadow = true,
         left = null,
@@ -338,6 +345,7 @@ class EnterpriseTitleBar extends StatelessWidget
         //topPadding = 40.h,
         height = height ?? 44.h,
         topPadding = 0,
+        showTopPadding = true,
         backgroundColor = backgroundColor,
         showShadow = true,
         center = null,
@@ -360,6 +368,7 @@ class EnterpriseTitleBar extends StatelessWidget
         // topPadding = 54.h,
         height = 53.h,
         topPadding = 0,
+        showTopPadding = true,
         backgroundColor = PageStyle.c_FFFFFF,
         showShadow = false,
         center = Container(

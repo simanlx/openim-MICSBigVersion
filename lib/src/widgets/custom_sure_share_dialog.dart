@@ -56,7 +56,7 @@ class CustomSureShareDialog extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text("发送给：",style: TextStyle(color:Colors.black,fontSize: 18.sp,fontWeight: FontWeight.bold),),
+                Text("发送给：",style: TextStyle(color:Colors.black,fontSize: 16.sp,fontWeight: FontWeight.bold),),
                 ConstrainedBox(constraints: BoxConstraints(maxHeight: 180.h),
                   child: Container(
                   margin: EdgeInsets.only(top: 10.h),
@@ -80,7 +80,7 @@ class CustomSureShareDialog extends StatelessWidget {
                           children: [
                             AvatarView(
                               url: url,
-                              size: 34.h,
+                              size: 26.h,
                             ),
                             SizedBox(width: 10.w),
                             Text(
@@ -101,11 +101,11 @@ class CustomSureShareDialog extends StatelessWidget {
                         Get.back(result: true);
                       },
                       child: Container(
-                        height: 40.h,
+                        height: 26.h,
                         decoration: BoxDecoration(
                           color: PageStyle.c_57AD55
                         ),
-                        child: Center(child: Text("确认",textAlign: TextAlign.center,style: TextStyle(color: Colors.white),)),
+                        child: Center(child: Text("确认",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: 14.sp),)),
                       ),
                     )),
                     SizedBox(width: 10.w,),
@@ -115,11 +115,11 @@ class CustomSureShareDialog extends StatelessWidget {
                         Get.back();
                       },
                       child: Container(
-                        height: 40.h,
+                        height: 26.h,
                         decoration: BoxDecoration(
                             color: PageStyle.c_D3D3D3
                         ),
-                        child: Center(child: Text("取消",textAlign: TextAlign.center,style: TextStyle(color: PageStyle.c_57AD55))),
+                        child: Center(child: Text("取消",textAlign: TextAlign.center,style: TextStyle(color: PageStyle.c_57AD55,fontSize: 14.sp))),
                       ),
                     )),
                   ],

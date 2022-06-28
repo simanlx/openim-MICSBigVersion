@@ -395,6 +395,7 @@ class SelectContactsLogic extends GetxController {
     var sharePath = Get.arguments['sharePath'];
     if (patientItem!=null) {
       title = "${patientItem.name} (${patientItem.sex} ${patientItem.patientRoomName})";
+      content = patientItem.illnessDesc??"";
     }
     // patie
     Get.dialog(CustomSureShareDialog(

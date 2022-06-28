@@ -17,6 +17,7 @@ import 'package:mics_big_version/src/models/zskjs/YlbwType.dart';
 import 'package:mics_big_version/src/routes/app_pages.dart';
 import 'package:mics_big_version/src/utils/EventBusBkrs.dart';
 import 'package:mics_big_version/src/utils/im_util.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:record_mp3/record_mp3.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import '../../../../models/zskjs/SaveYlbwRes.dart';
@@ -70,8 +71,6 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
 
   @override
   void initState() {
-    // player.openPlayer()
-    // recorder.openRecorder()
     super.initState();
     getLabelList();
     //获取参数
@@ -161,7 +160,7 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
   //医疗备忘标签
   // var typeId = "3";
   // var typeName = "";
-  var title = "暂时的标题";
+  var title = "";
   var globalNewList = <YlbwElementNew>[];
 
   // scence 5 //收藏
@@ -295,8 +294,8 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
   Widget buildHead(){
 
     return  Container(
-      height: 80.h,
-      padding: EdgeInsets.only(left: 12.w, right: 12.w, top: 20.w),
+      height: 40.h,
+      padding: EdgeInsets.only(left: 12.w, right: 12.w),
       decoration: BoxDecoration(
           color: PageStyle.c_FFFFFF,
           boxShadow: [
@@ -311,25 +310,25 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
       child: Stack(
         // alignment: Alignment.center,
         children: [
-          Align(
-              alignment: Alignment.centerLeft,
-              child: InkWell(child: Padding(child: Image.asset(
-                ImageRes.ic_back,
-                width: 12.w,
-                height: 20.h,
-              ),padding: EdgeInsets.only(left: 8.w,right: 20.w,top: 5.h,bottom: 5.w)),onTap: (){
-                //返回
-                if(isRecording){
-                  IMWidget.showToast("正在录音,请完成录音后再尝试");
-                  return;
-                }
-                //todo 保存数据
-                // logic.back();
-              },
-              )),
+          // Align(
+          //     alignment: Alignment.centerLeft,
+          //     child: InkWell(child: Padding(child: Image.asset(
+          //       ImageRes.ic_back,
+          //       width: 12.w,
+          //       height: 20.h,
+          //     ),padding: EdgeInsets.only(left: 8.w,right: 20.w,top: 5.h,bottom: 5.w)),onTap: (){
+          //       //返回
+          //       if(isRecording){
+          //         IMWidget.showToast("正在录音,请完成录音后再尝试");
+          //         return;
+          //       }
+          //       //todo 保存数据
+          //       // logic.back();
+          //     },
+          //     )),
           Align(
             alignment: Alignment.center,
-            child:  Text(StrRes.medicalMemo,textAlign: TextAlign.center,style: PageStyle.ts_333333_18sp),
+            child:  Text(StrRes.medicalMemo,textAlign: TextAlign.center,style: PageStyle.ts_333333_16sp),
           ),
           Align(
             alignment: Alignment.centerRight,
@@ -438,7 +437,7 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
       if (element.type == "text") {
         var focusNode = element.focusNode;
         eles.add(WidgetSpan(child: TextField(
-          autofocus: element.autoFocus??false,
+          // autofocus: element.autoFocus??false,
           focusNode: focusNode,
           controller: element.textEditingController,maxLines: null,keyboardType: TextInputType.multiline,decoration: InputDecoration(border: InputBorder.none),)));
         focusNode.addListener(() {
@@ -505,7 +504,7 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
         Visibility(child: DottedBorder(
           color: PageStyle.c_BBBBBB,
           child: Container(
-            height: 70.h,
+            height: 40.h,
             child: Row(
               children: [
                 SizedBox(width: 10.w),
@@ -535,7 +534,7 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
         ),visible: element.isRecording??false,),
         Visibility(visible: !(element.isRecording??false),
               child: Container(
-                height: 70.h,
+                height: 40.h,
                 margin: EdgeInsets.only(top: 10.h),
                 decoration: BoxDecoration(color: PageStyle.c_EEEEEE),
                 child: Row(
@@ -584,24 +583,6 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
 
                             });
 
-                            //   for (var value in elements) {
-                            //     if(currentPlayUri != element.fileUrl){
-                            //       value.currentSec = 0;
-                            //       value.isPlaying = false;
-                            //     }
-                            //   }
-                            //   setState(() {
-                            //
-                            //   });
-                            // currentPlayUri = element.fileUrl??"";
-                            // if (audioPlayer.playerState.playing) {
-                            //   audioPlayer.stop();
-                            // }else{
-                            //   audioPlayer.setAudioSource(AudioSource.uri(path.toUri(element.fileUrl??"")));
-                            //   audioPlayer.seek(Duration(seconds: element.currentSec));
-                            //   audioPlayer.play();
-                            // }
-
                             audioPlayer.playerStateStream.listen((event) {
                               element.isPlaying = audioPlayer.playerState.playing;
                               if (event.processingState == ProcessingState.completed) {
@@ -618,8 +599,6 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
                               }
                               if(element.currentSec != event.inSeconds){
                                 setState(() {
-                                  // print("播放inSeconds ${event.inSeconds}");
-                                  // print("播放inSeconds嘿嘿哈${element.currentSec}   ${element.voiceLength}");
                                   element.currentSec = event.inSeconds;
                                 });
                               }
@@ -643,7 +622,7 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
                             borderRadius: BorderRadius.circular(5.r),
                             color:Colors.grey,
                           ),
-                          width: 140.w,
+                          width: 300.w,
                           height: 3.h,
                         ),
                         Container(
@@ -652,7 +631,7 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
                             color:Colors.blue,
                           ),
                           height: 3.h,
-                          width: currentPlayUri == element.fileUrl ?(element.currentSec / (element.voiceLength??-1)) * 150.w:0,
+                          width: currentPlayUri == element.fileUrl ?(element.currentSec / (element.voiceLength??-1)) * 300.w:0,
                         )
                       ],
                     ),),
@@ -746,14 +725,14 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
             backgroundColor: PageStyle.c_FFFFFF,
             body: Container(
               height: 1.sh,
-                child: Column(
-                  children: [
-                    buildHead(),
-                    // buildSearch(),
-                    // Expanded(child: Padding(child: buildContent2(context),padding: EdgeInsets.only(left: 10,right:10))),
-                    Expanded(child: SingleChildScrollView(child: buildContent2(context),)),
-                    buildFooter()
-                  ],
+              child: Column(
+                children: [
+                  buildHead(),
+                  // buildSearch(),
+                  // Expanded(child: Padding(child: buildContent2(context),padding: EdgeInsets.only(left: 10,right:10))),
+                  Expanded(child: Padding(padding: EdgeInsets.all(10.w),child: SingleChildScrollView(child: buildContent2(context)))),
+                  buildFooter()
+                ],
               ),
             )),
         onWillPop: () async{
@@ -878,10 +857,12 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
 
   // late Timer recordingTimer;
 
-  void startRecord() {
+  void startRecord() async{
     // _record = VoiceRecord(callback);
     // _record.start();
-    recordingPath = "/data/data/io.openim.app.enterprisechat/files/${DateTime.now().millisecondsSinceEpoch}.m4a";
+    var pa =await getApplicationSupportDirectory();
+    print("缓存目录  ${pa.path}");
+    recordingPath = "${pa.path}/${DateTime.now().millisecondsSinceEpoch}.m4a";
     RecordMp3.instance.start(recordingPath, (p0){
 
     });
@@ -1077,14 +1058,14 @@ class _MedicalMemoDetailPageState extends State<MedicalMemoDetailPage> {
     Get.toNamed(AppRoutes.SELECT_CONTACTS,arguments: {
       'action': SelAction.MyFORWARD,
       'ylbwItem':item,
-      'sharePath':AppRoutes.MEDICAL_MEMO_DETAIL
+      'sharePath':AppRoutes.HOME
     });
 
   }
 
   Widget buildFooter() {
     return Container(
-      height: 60.h,
+      height: 30.h,
       color: PageStyle.c_E6E2E2,
       child: Row(children: [
         SizedBox(width: 20),

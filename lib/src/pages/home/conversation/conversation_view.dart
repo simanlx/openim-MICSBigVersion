@@ -23,7 +23,7 @@ class ConversationPage extends StatelessWidget {
       body: Obx(() => Row(
         children: [
           Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6.r)),color: Colors.red),
+            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6.r)),color: Colors.white),
             width: 230.w,child: SlidableAutoCloseBehavior(
             child: SmartRefresher(
               enablePullDown: true,
