@@ -10,7 +10,8 @@ class MyTabBarView extends StatelessWidget{
   var index = 0;
   var items = [];
   Function(int index)? onTap;
-  MyTabBarView({required this.index,required this.items,this.onTap});
+  Color? fontColor;
+  MyTabBarView({required this.index,required this.items,this.onTap,this.fontColor});
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,9 @@ class MyTabBarView extends StatelessWidget{
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(items[index],style: TextStyle(fontSize: 18.sp,color: PageStyle.c_FFFFFF),),
+                    Text(items[index],style: TextStyle(fontSize: 18.sp,color:fontColor?? PageStyle.c_FFFFFF),),
                     SizedBox(height: 3.h,),
-                    Visibility(visible: this.index == index,child: Container(width: 20.w,height: 1.h,color: PageStyle.c_FFFFFF))
+                    Visibility(visible: this.index == index,child: Container(width: 20.w,height: 1.h,color:fontColor?? PageStyle.c_FFFFFF))
                   ],),
                 ),
               );

@@ -50,7 +50,8 @@ class Config {
   static const secret = 'tuoyun';
 
   /// ip
-  static const defaultIp = "101.43.113.42"; //43.128.5.63"; //121.37.25.71 //101.43.113.42(汪群的)
+  // static const defaultIp = "101.43.113.42"; //43.128.5.63"; //121.37.25.71 //101.43.113.42(汪群的)
+  static const defaultIp = "https://jialai-voip.raisound.com"; //43.128.5.63"; //121.37.25.71 //101.43.113.42(汪群的)
 
   /// 服务器IP
   static String serverIp() {
@@ -71,7 +72,8 @@ class Config {
       url = server['authUrl'];
       print('缓存authUrl: $url');
     }
-    return url ?? "http://$defaultIp:10004";
+    // return url ?? "http://$defaultIp:10004";
+    return url ?? "https://jialai-voip.raisound.com/demo";
   }
 
   /// IM sdk api地址
@@ -82,9 +84,8 @@ class Config {
       url = server['apiUrl'];
       print('缓存apiUrl: $url');
     }
-    // return 'https://jialai-voip.raisound.com';
-    return url ?? "http://$defaultIp:10002";
-    // return url ?? 'https://jialai-voip.raisound.com';
+    // return url ?? "http://$defaultIp:10002";
+    return url ?? 'https://jialai-voip.raisound.com';
   }
 
   /// IM ws 地址
@@ -95,7 +96,8 @@ class Config {
       url = server['wsUrl'];
       print('缓存wsUrl: $url');
     }
-    return url ?? 'ws://$defaultIp:10001';
+    // return url ?? 'ws://$defaultIp:10001';
+    return url ?? 'wss://jialai-voip.raisound.com/msg_gateway';
   }
 
   /// 音视频通话地址
@@ -106,7 +108,8 @@ class Config {
       url = server['callUrl'];
       print('缓存callUrl: $url');
     }
-    return url ?? 'ws://$defaultIp:7880';
+    // return url ?? 'ws://$defaultIp:7880';
+    return url ?? 'wss://jialai-voip.raisound.com';
   }
 
 

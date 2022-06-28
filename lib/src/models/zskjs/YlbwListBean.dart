@@ -1,5 +1,6 @@
 import 'dart:convert' as jjjj;
-import 'YlbwElementNew.dart';
+
+import 'package:mics_big_version/src/models/zskjs/YlbwElementNew.dart';
 
 class YlbwListBean{
   int? total;
@@ -54,6 +55,8 @@ class YlbwListBeanData {
   String? updateTime;
   List<YlbwElementNew>? noteData;
   String? typeName;
+  int? isTop;
+  int? topTime;
 
   YlbwListBeanData({this.id,
     this.typeId,
@@ -67,8 +70,8 @@ class YlbwListBeanData {
     id = json['id'];
     typeId = json['type_id'].toString();
     title = json['title'];
-    createTime = json['create_time'];
-    updateTime = json['update_time'];
+    createTime = json['create_time'].toString();
+    updateTime = json['update_time'].toString();
     if (json['note_data'] != null) {
       noteData = <YlbwElementNew>[];
       var aa = json['note_data'];
@@ -83,19 +86,23 @@ class YlbwListBeanData {
       };
     }
     typeName = json['type_name'];
+    isTop = json['is_top'];
+    topTime = json['top_time'];
   }
 
-    Map<String, dynamic> toJson() {
-      final Map<String, dynamic> data = new Map<String, dynamic>();
-      data['id'] = this.id;
-      data['type_id'] = this.typeId;
-      data['title'] = this.title;
-      data['create_time'] = this.createTime;
-      data['update_time'] = this.updateTime;
-      if (this.noteData != null) {
-        data['note_data'] = this.noteData!.map((v) => v.toJson()).toList();
-      }
-      data['type_name'] = this.typeName;
-      return data;
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['type_id'] = this.typeId;
+    data['title'] = this.title;
+    data['create_time'] = this.createTime;
+    data['update_time'] = this.updateTime;
+    if (this.noteData != null) {
+      data['note_data'] = this.noteData!.map((v) => v.toJson()).toList();
+    }
+    data['type_name'] = this.typeName;
+    data['is_Top'] = this.isTop;
+    data['top_time'] = this.topTime;
+    return data;
   }
 }

@@ -29,7 +29,7 @@ class YlbwElementNew{
   }
 
   YlbwElementNew.fromJson(Map<String, dynamic> json) {
-    index = json['index'];
+    index = json['index'].toString();
     type = json['type'];
     property = json['property'];
     data = json['data'];

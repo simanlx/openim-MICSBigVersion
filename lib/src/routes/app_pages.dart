@@ -1,12 +1,26 @@
 import 'package:get/get.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/background_image/background_image_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/background_image/background_image_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/chat_setup_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/chat_setup_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/font_size/font_size_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/font_size/font_size_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/create_group/create_group_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/create_group/create_group_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/group_member_manager_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/group_member_manager_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/search_member/search_member_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/search_member/search_member_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_setup_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_setup_view.dart';
 import '../pages/add_friend/send_friend_request/send_friend_request_binding.dart';
 import '../pages/add_friend/send_friend_request/send_friend_request_view.dart';
-import '../pages/contacts/friend_info/friend_info_binding.dart';
-import '../pages/contacts/friend_info/friend_info_view.dart';
-import '../pages/contacts/friend_info/id_code/id_code_binding.dart';
-import '../pages/contacts/friend_info/id_code/id_code_view.dart';
-import '../pages/contacts/friend_info/remark/remark_binding.dart';
-import '../pages/contacts/friend_info/remark/remark_view.dart';
+import '../pages/home/contacts/friend_info/friend_info_binding.dart';
+import '../pages/home/contacts/friend_info/friend_info_view.dart';
+import '../pages/home/contacts/friend_info/id_code/id_code_binding.dart';
+import '../pages/home/contacts/friend_info/id_code/id_code_view.dart';
+import '../pages/home/contacts/friend_info/remark/remark_binding.dart';
+import '../pages/home/contacts/friend_info/remark/remark_view.dart';
 import '../pages/home/home_binding.dart';
 import '../pages/home/home_view.dart';
 import '../pages/login/login_binding.dart';
@@ -68,11 +82,11 @@ class AppPages {
     //   page: () => ChatPage2(),
     //   binding: ChatBinding2(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.CHAT_SETUP,
-    //   page: () => ChatSetupPage(),
-    //   binding: ChatSetupBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.CHAT_SETUP,
+      page: () => ChatSetupPage(),
+      binding: ChatSetupBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.SELECT_CONTACTS_BY_GROUP,
     //   page: () => SelectByGroupMemberPage(),
@@ -153,21 +167,21 @@ class AppPages {
     //   page: () => MyIDPage(),
     //   binding: MyIDBinding(),
     // ),
-    // // GetPage(
-    // //   name: AppRoutes.CALL,
-    // //   page: () => CallPage(),
-    // //   binding: CallBinding(),
-    // // ),
     // GetPage(
-    //   name: AppRoutes.CREATE_GROUP_IN_CHAT_SETUP,
-    //   page: () => CreateGroupInChatSetupPage(),
-    //   binding: CreateGroupInChatSetupBinding(),
+    //   name: AppRoutes.CALL,
+    //   page: () => CallPage(),
+    //   binding: CallBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.GROUP_SETUP,
-    //   page: () => GroupSetupPage(),
-    //   binding: GroupSetupBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.CREATE_GROUP_IN_CHAT_SETUP,
+      page: () => CreateGroupInChatSetupPage(),
+      binding: CreateGroupInChatSetupBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.GROUP_SETUP,
+      page: () => GroupSetupPage(),
+      binding: GroupSetupBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.GROUP_NAME_SETUP,
     //   page: () => GroupNameSetupPage(),
@@ -193,11 +207,11 @@ class AppPages {
     //   page: () => MyGroupNicknamePage(),
     //   binding: MyGroupNicknameBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.GROUP_MEMBER_MANAGER,
-    //   page: () => GroupMemberManagerPage(),
-    //   binding: GroupMemberManagerBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.GROUP_MEMBER_MANAGER,
+      page: () => GroupMemberManagerPage(),
+      binding: GroupMemberManagerBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.GROUP_MEMBER_LIST,
     //   page: () => GroupMemberListPage(),
@@ -243,11 +257,11 @@ class AppPages {
     //   page: () => SearchGroupPage(),
     //   binding: SearchGroupBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.SEARCH_MEMBER,
-    //   page: () => SearchMemberPage(),
-    //   binding: SearchMemberBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.SEARCH_MEMBER,
+      page: () => SearchMemberPage(),
+      binding: SearchMemberBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.CALL_RECORDS,
     //   page: () => CallRecordsPage(),
@@ -293,11 +307,11 @@ class AppPages {
     //   page: () => EmojiManagePage(),
     //   binding: EmojiManageBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.FONT_SIZE,
-    //   page: () => FontSizePage(),
-    //   binding: FontSizeBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.FONT_SIZE,
+      page: () => FontSizePage(),
+      binding: FontSizeBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.TAG,
     //   page: () => TagGroupPage(),
@@ -343,11 +357,11 @@ class AppPages {
     //   page: () => OANotificationPage(),
     //   binding: OANotificationBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.SET_BACKGROUND_IMAGE,
-    //   page: () => BackgroundImagePage(),
-    //   binding: BackgroundImageBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.SET_BACKGROUND_IMAGE,
+      page: () => BackgroundImagePage(),
+      binding: BackgroundImageBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.LOGIN_PC,
     //   page: () => LoginPcPage(),

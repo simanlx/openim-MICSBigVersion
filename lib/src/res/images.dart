@@ -129,4 +129,25 @@ class ImageRes {
   static const ic_collection_bkrs = '${_dir}ic_collection_bkrs.png';
   static const ic_patient_exit = '${_dir}ic_patient_exit.png';
   static const ic_patient_hh = '${_dir}ic_patient_hh.png';
+
+  static const ic_card_ygdjl = '${_dir}ic_ygdjl.png';
+  static const ic_card_ylbw = '${_dir}ic_ylbw.png';
+  static const ic_card_hzda = '${_dir}ic_hzda.png';
+
+  static const ic_to_like = '${_dir}ic_to_like.png';
+  static const ic_to_share = '${_dir}ic_to_share.png';
+  static const ic_to_top = '${_dir}ic_to_top.png';
+
+  static const ic_arrow_up = '${_dir}ic_arrow_up.png';
+  static const ic_arrow_down = '${_dir}ic_arrow_down.png';
+  static const ic_edit = '${_dir}ic_edit.png';
+  static const ic_no_data = '${_dir}ic_no_data.png';
+
+  static const ic_type_sel = '${_dir}ic_type_sel.png';
+  static const ic_type_unsel = '${_dir}ic_type_unsel.png';
+  static const ic_flag_top = '${_dir}ic_flag_top.png';
+  static const ic_xinfeng = '${_dir}ic_xinfeng.png';
+
+  static const ic_home_main_bg = '${_dir}home_main_bg.png';
+  static const ic_home_main_logo = '${_dir}home_main_logo.png';
 }

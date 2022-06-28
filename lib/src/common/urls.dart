@@ -77,5 +77,13 @@ class Urls {
   static var userMatch = "${Config.bkrsApiUrl()}/im/user/match";
 
 
+  static var noteTop = "${Config.bkrsApiUrl()}/im/note/top";
+
+  static var cancelNoteTop = "${Config.bkrsApiUrl()}/im/note/top/cancel";
+
+  static var deleteLike = "${Config.bkrsApiUrl()}/im/collect/delete";
+
+  //智能定位
+  static var updataPos = "${Config.bkrsApiUrl()}/im/point/add";
 
 }

@@ -45,6 +45,9 @@ class PageStyle {
   static const c_3894FF = Color(0xFF3894FF);
   static const c_E9F3FF = Color(0xFFE9F3FF);
   static const c_BBBBBB = Color(0xFFBBBBBB);
+  static const c_D3D3D3 = Color(0xFFD3D3D3);
+  static const c_57AD55 = Color(0xFF57AD55);
+  static const c_F2F2F2 = Color(0xFFF2F2F2);
 
 
 
@@ -267,6 +270,10 @@ class PageStyle {
     fontSize: 18.sp,
     color: Color(0xFF999999),
   );
+  static var ts_666666_10sp = TextStyle(
+    fontSize: 10.sp,
+    color: Color(0xFF666666),
+  );
   static var ts_666666_12sp = TextStyle(
     fontSize: 12.sp,
     color: Color(0xFF666666),
@@ -392,18 +399,18 @@ class PageStyle {
     color: Color(0xFFaaaaaa),
   );
   static var ts_101010_33sp_bold = TextStyle(
-    fontSize: 33.sp,
-    color: Color(0xFF101010),
-    fontWeight: FontWeight.bold
+      fontSize: 33.sp,
+      color: Color(0xFF101010),
+      fontWeight: FontWeight.bold
   );
 
   static var ts_101010_16sp = TextStyle(
-      fontSize: 16.sp,
-      color: Color(0xFF101010),
+    fontSize: 16.sp,
+    color: Color(0xFF101010),
   );
 
   static var ts_ffffff_10sp =  TextStyle(
-  fontSize: 10.sp,
-  color: Color(0xFFFFFFFF),
+    fontSize: 10.sp,
+    color: Color(0xFFFFFFFF),
   );
 }

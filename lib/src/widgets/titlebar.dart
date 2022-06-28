@@ -243,31 +243,32 @@ class EnterpriseTitleBar extends StatelessWidget
         topPadding = 0,
         backgroundColor = backgroundColor,
         showShadow = true,
-        left = Row(
-          children: [
-            GestureDetector(
-              onTap: onClose,
-              behavior: HitTestBehavior.translucent,
-              child: Container(
-                padding: EdgeInsets.only(left: 10.w, right: 10.w),
-                height: 44.h,
-                child: Center(
-                  child: null != leftButton
-                      ? Text(
-                          leftButton,
-                          style: PageStyle.ts_333333_18sp,
-                        )
-                      : Image.asset(
-                          ImageRes.ic_back,
-                          width: 12.w,
-                          height: 20.h,
-                        ),
-                ),
-              ),
-            ),
-            Spacer()
-          ],
-        ),
+        left = null,
+        // left = Row(
+        //   children: [
+        //     GestureDetector(
+        //       onTap: onClose,
+        //       behavior: HitTestBehavior.translucent,
+        //       child: Container(
+        //         padding: EdgeInsets.only(left: 10.w, right: 10.w),
+        //         height: 44.h,
+        //         child: Center(
+        //           child: null != leftButton
+        //               ? Text(
+        //                   leftButton,
+        //                   style: PageStyle.ts_333333_18sp,
+        //                 )
+        //               : Image.asset(
+        //                   ImageRes.ic_back,
+        //                   width: 12.w,
+        //                   height: 20.h,
+        //                 ),
+        //         ),
+        //       ),
+        //     ),
+        //     Spacer()
+        //   ],
+        // ),
         right = Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -290,7 +291,7 @@ class EnterpriseTitleBar extends StatelessWidget
           ],
         ),
         center = Container(
-          constraints: BoxConstraints(maxWidth: 180.w),
+          constraints: BoxConstraints(maxWidth: 550.w),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -298,7 +299,7 @@ class EnterpriseTitleBar extends StatelessWidget
               if (null != title)
                 Text(
                   title,
-                  style: PageStyle.ts_333333_18sp,
+                  style: PageStyle.ts_333333_16sp,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),

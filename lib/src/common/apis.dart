@@ -1077,6 +1077,38 @@ class Apis {
       return Future.error(e);
     }
   }
+  //医疗备忘置顶
+  static Future cancelTopYlbw(String note_id) async{
+    try {
+      var data = {
+        "note_id":note_id,
+      };
+      var res = await HttpUtil.postBkrs(Urls.cancelNoteTop,data: data,options: _tokenOptionsBkrs());
+      print("得到的结果 ${res}");
+      return Future.value(res==null?null:
+      UserMatchRes.fromJson(res)
+      );
+    } catch (e) {
+      print('e:$e');
+      return Future.error(e);
+    }
+  }
 
+  //医疗备忘置顶
+  static Future setTopYlbw(String note_id) async{
+    try {
+      var data = {
+        "note_id":note_id,
+      };
+      var res = await HttpUtil.postBkrs(Urls.noteTop,data: data,options: _tokenOptionsBkrs());
+      print("得到的结果 ${res}");
+      return Future.value(res==null?null:
+      UserMatchRes.fromJson(res)
+      );
+    } catch (e) {
+      print('e:$e');
+      return Future.error(e);
+    }
+  }
 
 }

@@ -1,5 +1,7 @@
 import 'package:flutter_openim_sdk/flutter_openim_sdk.dart';
 import 'package:get/get.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/member_list/member_list_logic.dart';
+import 'package:mics_big_version/src/pages/select_contacts/select_contacts_logic.dart';
 import '../models/contacts_info.dart';
 import '../models/zskjs/YlbwListBean.dart';
 import '../models/zskjs/ZskjsListContentListItem.dart';
@@ -146,22 +148,22 @@ class AppNavigator {
     });
   }
 
-  // static Future<T?>? startSelectContacts<T>({
-  //   required SelAction action,
-  //   List<String>? defaultCheckedUidList,
-  //   List<String>? excludeUidList,
-  //   List<ContactsInfo>? checkedList,
-  // }) {
-  //   return Get.toNamed<T>(
-  //     AppRoutes.SELECT_CONTACTS,
-  //     arguments: {
-  //       'action': action,
-  //       'defaultCheckedUidList': defaultCheckedUidList,
-  //       'excludeUidList': excludeUidList,
-  //       'checkedList': checkedList,
-  //     },
-  //   );
-  // }
+  static Future<T?>? startSelectContacts<T>({
+    required SelAction action,
+    List<String>? defaultCheckedUidList,
+    List<String>? excludeUidList,
+    List<ContactsInfo>? checkedList,
+  }) {
+    return Get.toNamed<T>(
+      AppRoutes.SELECT_CONTACTS,
+      arguments: {
+        'action': action,
+        'defaultCheckedUidList': defaultCheckedUidList,
+        'excludeUidList': excludeUidList,
+        'checkedList': checkedList,
+      },
+    );
+  }
 
   static void startAddContacts() {
     Get.toNamed(AppRoutes.ADD_CONTACTS);
@@ -304,22 +306,22 @@ class AppNavigator {
     );
   }
 
-  // static Future<T?>? startGroupMemberList<T>({
-  //   required String gid,
-  //   required OpAction action,
-  //   List<GroupMembersInfo>? list,
-  //   List<String>? defaultCheckedUidList,
-  // }) {
-  //   return Get.toNamed(
-  //     AppRoutes.GROUP_MEMBER_LIST,
-  //     arguments: {
-  //       'gid': gid,
-  //       'list': list,
-  //       'action': action,
-  //       'defaultCheckedUidList': defaultCheckedUidList,
-  //     },
-  //   );
-  // }
+  static Future<T?>? startGroupMemberList<T>({
+    required String gid,
+    required OpAction action,
+    List<GroupMembersInfo>? list,
+    List<String>? defaultCheckedUidList,
+  }) {
+    return Get.toNamed(
+      AppRoutes.GROUP_MEMBER_LIST,
+      arguments: {
+        'gid': gid,
+        'list': list,
+        'action': action,
+        'defaultCheckedUidList': defaultCheckedUidList,
+      },
+    );
+  }
 
   static void startViewGroupId({required GroupInfo info}) {
     Get.toNamed(AppRoutes.GROUP_ID, arguments: info);
@@ -370,10 +372,10 @@ class AppNavigator {
     return Get.toNamed(AppRoutes.LANGUAGE_SETUP);
   }
 
-  // static void createGroup() => startSelectContacts(
-  //       action: SelAction.CRATE_GROUP,
-  //       defaultCheckedUidList: [OpenIM.iMManager.uid],
-  //     );
+  static void createGroup() => startSelectContacts(
+        action: SelAction.CRATE_GROUP,
+        defaultCheckedUidList: [OpenIM.iMManager.uid],
+      );
 
   static void applyEnterGroup(GroupInfo info) {
     Get.toNamed(AppRoutes.APPLY_ENTER_GROUP, arguments: info);
