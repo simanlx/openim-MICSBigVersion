@@ -17,6 +17,8 @@ import 'package:mics_big_version/src/pages/home/contacts/group_list/search_group
 import 'package:mics_big_version/src/pages/home/contacts/group_list/search_group/search_group_view.dart';
 import 'package:mics_big_version/src/pages/select_contacts/select_contacts_binding.dart';
 import 'package:mics_big_version/src/pages/select_contacts/select_contacts_view.dart';
+import 'package:mics_big_version/src/pages/webview/zhp_webview/zhp_webview_binding.dart';
+import 'package:mics_big_version/src/pages/webview/zhp_webview/zhp_webview_view.dart';
 import '../pages/add_friend/send_friend_request/send_friend_request_binding.dart';
 import '../pages/add_friend/send_friend_request/send_friend_request_view.dart';
 import '../pages/home/contacts/friend_info/friend_info_binding.dart';
@@ -365,6 +367,11 @@ class AppPages {
       name: AppRoutes.SET_BACKGROUND_IMAGE,
       page: () => BackgroundImagePage(),
       binding: BackgroundImageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.ZHP_WEBVIEW,
+      page: () => ZhpWebviewPage(),
+      binding: ZhpWebviewBinding(),
     ),
     // GetPage(
     //   name: AppRoutes.LOGIN_PC,

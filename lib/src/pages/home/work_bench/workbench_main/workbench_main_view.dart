@@ -205,6 +205,8 @@ class WorkbenchMainPage extends StatelessWidget {
         }else if(item.appUrl == "zndw"){
           //智能定位
           // logic.skipHzgl();
+        }else if(item.appUrl == "zhp"){
+          logic.skipZhp();
         }
       },
       child: Column(

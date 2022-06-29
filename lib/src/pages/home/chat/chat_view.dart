@@ -14,6 +14,7 @@ import 'package:mics_big_version/src/sdk_extension/message_manager.dart';
 import 'package:mics_big_version/src/utils/im_util.dart';
 import 'package:mics_big_version/src/widgets/CustomeCardWidget.dart';
 import 'package:mics_big_version/src/widgets/avatar_view.dart';
+import 'package:mics_big_version/src/widgets/bkrs/ChatVoiceRecordLayoutBkrs.dart';
 import 'package:mics_big_version/src/widgets/chat_listview.dart';
 import 'package:mics_big_version/src/widgets/custom_sure_share_dialog.dart';
 import 'package:mics_big_version/src/widgets/titlebar.dart';
@@ -149,7 +150,7 @@ class ChatPage extends StatelessWidget {
     print("=====================ChatView build ====================");
     return Obx(() => WillPopScope(
           onWillPop: logic.multiSelMode.value ? () async => logic.exit() : null,
-          child: ChatVoiceRecordLayout(
+          child: ChatVoiceRecordLayoutBkrs(
             key: logic.chatVoiceRecordLayoutKey,
             locale: Get.locale,
             builder: (bar) => Obx(() => Scaffold(

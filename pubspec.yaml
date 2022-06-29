@@ -113,6 +113,8 @@ dependencies:
   keyboard_actions: ^3.4.7
   flutter_html: any
   record_mp3: ^3.0.0
+  webview_flutter: ^3.0.4
+  flutter_inappwebview: ^5.4.3+7
   flutter_floating: ^0.0.1
   # 仓库地址：https://github.com/hrxiang/flutter_openim_live_alert.git
   flutter_openim_live_alert:

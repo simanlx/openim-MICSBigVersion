@@ -16,6 +16,7 @@ import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_main_logic.dart';
 import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_main_view.dart';
 import 'package:mics_big_version/src/res/strings.dart';
 import 'package:mics_big_version/src/routes/app_navigator.dart';
+import 'package:mics_big_version/src/routes/app_pages.dart';
 import 'package:mics_big_version/src/utils/EventBusBkrs.dart';
 import 'package:mics_big_version/src/utils/data_persistence.dart';
 import 'package:mics_big_version/src/utils/im_util.dart';
@@ -524,6 +525,8 @@ class WorkbenchLogic extends GetxController {
 
       list2.clear();
       list2.addAll(realList);
+
+      list2.add(CommonPartInfo(id: 666,name: "智慧屏",appUrl: "zhp"));
     }
     refreshController.refreshCompleted(resetFooterState: true);
   }
@@ -644,5 +647,9 @@ class WorkbenchLogic extends GetxController {
         stackList.removeAt(i);
       }
     }
+  }
+
+  void skipZhp() {
+    Get.toNamed(AppRoutes.ZHP_WEBVIEW);
   }
 }

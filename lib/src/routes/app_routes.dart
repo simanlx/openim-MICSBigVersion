@@ -89,6 +89,7 @@ abstract class AppRoutes {
   static const DEPART_FRIEND_LIST = "/depart_friend_list";
   static const PATIENT_GDJL_PAGE = "/patient_gdjl_page";
   static const DO_BY_SPEECH = "/do_by_speech";
+  static const ZHP_WEBVIEW = "/zhp_webview";
 }
 
 extension RoutesExtension on String {
