@@ -11,6 +11,7 @@ import 'package:flutter_openim_widget/flutter_openim_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/member_list/member_list_logic.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sprintf/sprintf.dart';
 
@@ -201,15 +202,15 @@ class IMWidget {
     int index,
     Function(int index, List<String> inviteeUserIDList) onTap,
   ) async {
-    // var result = await AppNavigator.startGroupMemberList(
-    //   gid: groupID,
-    //   defaultCheckedUidList: [OpenIM.iMManager.uid],
-    //   action: OpAction.GROUP_CALL,
-    // );
-    // if (result != null) {
-    //   List<String> uidList = result;
-    //   onTap.call(index, uidList);
-    // }
+    var result = await AppNavigator.startGroupMemberList(
+      gid: groupID,
+      defaultCheckedUidList: [OpenIM.iMManager.uid],
+      action: OpAction.GROUP_CALL,
+    );
+    if (result != null) {
+      List<String> uidList = result;
+      onTap.call(index, uidList);
+    }
   }
 
   static Future<String?> showCountryCodePicker() async {

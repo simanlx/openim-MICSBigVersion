@@ -8,6 +8,8 @@ import 'package:mics_big_version/src/core/controller/im_controller.dart';
 import 'package:mics_big_version/src/models/common_part_info.dart';
 import 'package:mics_big_version/src/pages/bkparts/patient_manage/patient_manage_logic.dart';
 import 'package:mics_big_version/src/pages/bkparts/patient_manage/patient_manage_view.dart';
+import 'package:mics_big_version/src/pages/bkparts/zskjs/ZskjsMainLogic.dart';
+import 'package:mics_big_version/src/pages/bkparts/zskjs/ZskjsMainPage.dart';
 import 'package:mics_big_version/src/pages/home/home_logic.dart';
 import 'package:mics_big_version/src/pages/home/work_bench/workbench_main/workbench_main_logic.dart';
 import 'package:mics_big_version/src/pages/home/work_bench/workbench_main/workbench_main_view.dart';
@@ -601,7 +603,10 @@ class WorkbenchLogic extends GetxController {
   }
 
   void skipZskjs() {
-    // AppNavigator.startZskjs();
+    Get.delete<ZskjsMainLogic>();
+    Get.put(ZskjsMainLogic());
+    var page = ZskjsMainPage();
+    stackList.add(page);
   }
 
   void skipYlbw() {

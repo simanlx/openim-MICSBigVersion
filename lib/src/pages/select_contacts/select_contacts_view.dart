@@ -27,11 +27,11 @@ class SelectContactsPage extends StatelessWidget {
       body: SafeArea(
         child: Obx(() => Column(
               children: [
-                SearchBox(
-                  enabled: false,
-                  margin: EdgeInsets.fromLTRB(22.w, 10.h, 22.w, 0),
-                  padding: EdgeInsets.symmetric(horizontal: 13.w),
-                ),
+                // SearchBox(
+                //   enabled: false,
+                //   margin: EdgeInsets.fromLTRB(22.w, 10.h, 22.w, 0),
+                //   padding: EdgeInsets.symmetric(horizontal: 13.w),
+                // ),
                 if (!logic.isMultiModel())
                   Container(height: 20.h,color: Colors.white),
                   // CustomTabBar(
@@ -43,7 +43,7 @@ class SelectContactsPage extends StatelessWidget {
                   CustomTabBar2(
                     index: logic.index.value,
                     onTabChanged: (i) => logic.switchTab(i),
-                    margin: EdgeInsets.only(top: 21.h, bottom: 13.h),
+                    margin: EdgeInsets.only(top: 6.h, bottom: 6.h),
                     tabs: [
                       TabInfo(
                         label: StrRes.selectByFriends,
@@ -51,8 +51,8 @@ class SelectContactsPage extends StatelessWidget {
                         styleUnsel: PageStyle.ts_333333_14sp,
                         iconSel: ImageRes.ic_tabSelFriend,
                         iconUnsel: ImageRes.ic_tabUnselFriend,
-                        iconHeight: 50.h,
-                        iconWidth: 50.w,
+                        iconHeight: 30.h,
+                        iconWidth: 30.h,
                       ),
                       TabInfo(
                         // label: StrRes.selectByGroup,
@@ -61,8 +61,8 @@ class SelectContactsPage extends StatelessWidget {
                         styleUnsel: PageStyle.ts_333333_14sp,
                         iconSel: ImageRes.ic_tabSelGroup,
                         iconUnsel: ImageRes.ic_tabUnselGroup,
-                        iconHeight: 50.h,
-                        iconWidth: 50.w,
+                        iconHeight: 30.h,
+                        iconWidth: 30.h,
                       ),
                     ],
                   ),),

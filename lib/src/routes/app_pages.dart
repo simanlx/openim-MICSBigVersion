@@ -9,6 +9,8 @@ import 'package:mics_big_version/src/pages/home/chat/create_group/create_group_b
 import 'package:mics_big_version/src/pages/home/chat/create_group/create_group_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/group_member_manager_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/group_member_manager_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/member_list/member_list_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/member_list/member_list_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/search_member/search_member_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/search_member/search_member_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_setup_binding.dart';
@@ -218,11 +220,11 @@ class AppPages {
       page: () => GroupMemberManagerPage(),
       binding: GroupMemberManagerBinding(),
     ),
-    // GetPage(
-    //   name: AppRoutes.GROUP_MEMBER_LIST,
-    //   page: () => GroupMemberListPage(),
-    //   binding: GroupMemberListBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.GROUP_MEMBER_LIST,
+      page: () => GroupMemberListPage(),
+      binding: GroupMemberListBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.GROUP_LIST,
     //   page: () => GroupListPage(),

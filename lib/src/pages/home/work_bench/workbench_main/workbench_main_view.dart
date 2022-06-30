@@ -20,27 +20,32 @@ class WorkbenchMainPage extends StatelessWidget {
 
 
     return Scaffold(
-      backgroundColor: PageStyle.c_FFFFFF,
-      body: Obx(() => Row(
-        children: [
-          Container(width: 250.w,child: _buildLeft(),),
-          Container(width: 2.w,color: PageStyle.c_e8e8e8,),
-          Expanded(child: Obx(()=>Column(
+      backgroundColor: Colors.transparent,
+      body: Obx(() =>
+          ClipRRect(borderRadius: BorderRadius.circular(10.r),
+          child: Row(
             children: [
-              SizedBox(height: 20.h,),
-              Expanded(child: GridView.builder(
-                  itemCount: logic.list2.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.0,
-                    crossAxisCount: 4,
-                  ),
-                  itemBuilder: (_, index){
-                    return _buildCommonPart(index);
-                  }))
-            ],
-          )))
+            Container(width: 250.w,child: _buildLeft(),),
+        Container(width: 2.w,color: PageStyle.c_e8e8e8,),
+        Expanded(child: Obx(()=>Column(
+          children: [
+            SizedBox(height: 20.h,),
+            Expanded(child: GridView.builder(
+                itemCount: logic.list2.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1.0,
+                  crossAxisCount: 4,
+                ),
+                itemBuilder: (_, index){
+                  return _buildCommonPart(index);
+                }))
+          ],
+        )))
         ],
-      )),
+      ),
+          )
+
+          ),
     );
   }
 

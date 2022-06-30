@@ -18,78 +18,74 @@ class ContactsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Obx(() =>
-        Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6.r)),color: Colors.white),
-            child: Row(
-              children: [
-                Container(width: 220.w,color: Colors.transparent,child: CustomScrollView(
-                  slivers: [
-                    _buildGroupItem(
-                      icon: ImageRes.ic_newFriend,
-                      label: "常用联系人",
-                      onTap: (){
-                        logic.showFrequentFriend();
-                      },
-                    ),
-                    _buildGroupItem(
-                      icon: ImageRes.ic_newFriend,
-                      label: StrRes.newFriend,
-                      onTap: (){},
-                      count: homeLogic.unhandledFriendApplicationCount.value,
-                    ),
-                    _buildGroupItem(
-                      icon: ImageRes.ic_groupApplicationNotification,
-                      label: StrRes.groupApplicationNotification,
-                      onTap: () {},
-                      count: homeLogic.unhandledGroupApplicationCount.value,
-                    ),
-                    _buildGroupItem(
-                      icon: ImageRes.ic_myFriend,
-                      label: StrRes.myFriend,
-                      onTap: () {
-                        logic.showMyFriend();
-                      },
-                    ),
-                    _buildGroupItem(
-                      icon: ImageRes.ic_myGroup,
-                      label: StrRes.myGroup,
-                      onTap: () {
-                        logic.toMyGroup();
-                      },
-                      showUnderline: true,
-                    ),
-                    _buildGroupItem(
-                      icon: ImageRes.ic_tag,
-                      label: StrRes.tag,
-                      showUnderline: false,
-                      onTap: (){},
-                    ),
-                    _buildOrganizationView(),
-                    // _buildSubTitle(),
-                    // SliverList(
-                    //   delegate: SliverChildBuilderDelegate(
-                    //         (context, index) => _buildContactsItem(
-                    //         logic.frequentContacts.elementAt(index)),
-                    //     childCount: logic.frequentContacts.length,
-                    //   ),
-                    // ),
-                  ],
-                ),),
-                Container(width: 2.w,color: PageStyle.c_e8e8e8,),
-                Expanded(child: Obx(()=>Stack(
-                  children: [
-                    if(logic.stackList.length>0)
-                      Obx(()=>logic.stackList.value[logic.stackList.length-1])
-                  ],
-                )))
-              ],
-            )
-        )
-
-
-
-      ),
+      body: ClipRRect(borderRadius: BorderRadius.circular(10.r),child:
+      Obx(()=>Container(
+          decoration: BoxDecoration(color: Colors.transparent),
+          child: Row(
+            children: [
+              Container(width: 220.w,color: Colors.transparent,child: CustomScrollView(
+                slivers: [
+                  _buildGroupItem(
+                    icon: ImageRes.ic_newFriend,
+                    label: "常用联系人",
+                    onTap: (){
+                      logic.showFrequentFriend();
+                    },
+                  ),
+                  _buildGroupItem(
+                    icon: ImageRes.ic_newFriend,
+                    label: StrRes.newFriend,
+                    onTap: (){},
+                    count: homeLogic.unhandledFriendApplicationCount.value,
+                  ),
+                  _buildGroupItem(
+                    icon: ImageRes.ic_groupApplicationNotification,
+                    label: StrRes.groupApplicationNotification,
+                    onTap: () {},
+                    count: homeLogic.unhandledGroupApplicationCount.value,
+                  ),
+                  _buildGroupItem(
+                    icon: ImageRes.ic_myFriend,
+                    label: StrRes.myFriend,
+                    onTap: () {
+                      logic.showMyFriend();
+                    },
+                  ),
+                  _buildGroupItem(
+                    icon: ImageRes.ic_myGroup,
+                    label: StrRes.myGroup,
+                    onTap: () {
+                      logic.toMyGroup();
+                    },
+                    showUnderline: true,
+                  ),
+                  _buildGroupItem(
+                    icon: ImageRes.ic_tag,
+                    label: StrRes.tag,
+                    showUnderline: false,
+                    onTap: (){},
+                  ),
+                  _buildOrganizationView(),
+                  // _buildSubTitle(),
+                  // SliverList(
+                  //   delegate: SliverChildBuilderDelegate(
+                  //         (context, index) => _buildContactsItem(
+                  //         logic.frequentContacts.elementAt(index)),
+                  //     childCount: logic.frequentContacts.length,
+                  //   ),
+                  // ),
+                ],
+              ),),
+              Container(width: 2.w,color: PageStyle.c_e8e8e8,),
+              Expanded(child: Obx(()=>Stack(
+                children: [
+                  if(logic.stackList.length>0)
+                    Obx(()=>logic.stackList.value[logic.stackList.length-1])
+                ],
+              )))
+            ],
+          )
+      )),),
     );
   }
   Widget _buildSubTitle() => SliverToBoxAdapter(
