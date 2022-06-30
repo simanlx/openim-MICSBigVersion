@@ -32,7 +32,7 @@ class MyGroupNicknamePage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 67.h,
+                  height: 20.h,
                 ),
                 Text(
                   StrRes.myNicknameInGroup,
@@ -51,7 +51,11 @@ class MyGroupNicknamePage extends StatelessWidget {
                 Container(
                   decoration: DottedDecoration(),
                 ),
+                SizedBox(
+                  height: 5.h,
+                ),
                 Container(
+                  padding: EdgeInsets.only(bottom: 5.h),
                   decoration: BoxDecoration(
                     border: BorderDirectional(
                       bottom: BorderSide(
@@ -99,7 +103,7 @@ class MyGroupNicknamePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 259.h,
+                  height: 60.h,
                 ),
                 Obx(() => Ink(
                       width: 149.w,

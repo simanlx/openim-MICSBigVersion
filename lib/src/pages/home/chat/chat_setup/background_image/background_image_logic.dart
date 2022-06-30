@@ -30,7 +30,7 @@ class BackgroundImageLogic extends GetxController {
   _buildImage(String path) async {
     String? value = await CommonUtil.createThumbnail(
       path: path,
-      minWidth: 1.sw,
+      minWidth: 500.w,
       minHeight: 1.sh,
     );
     if (null != value) _chatLogic.changeBackground(value);

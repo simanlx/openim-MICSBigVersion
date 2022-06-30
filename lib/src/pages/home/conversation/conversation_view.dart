@@ -9,6 +9,7 @@ import 'package:mics_big_version/src/widgets/avatar_view.dart';
 import 'package:mics_big_version/src/widgets/im_widget.dart';
 import 'package:mics_big_version/src/widgets/search_box.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:mics_big_version/src/widgets/bkrs/ConversationItemViewBkrs.dart' as conversationItemViewBkrs;
 
 import 'conversation_logic.dart';
 
@@ -20,31 +21,40 @@ class ConversationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: Colors.transparent,
-      body: Obx(() => Row(
-        children: [
-          Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6.r)),color: Colors.white),
-            width: 230.w,child: SlidableAutoCloseBehavior(
-            child: SmartRefresher(
-              enablePullDown: true,
-              enablePullUp: false,
-              header: IMWidget.buildHeader(),
-              footer: IMWidget.buildFooter(),
-              controller: logic.refreshController,
-              onRefresh: logic.onRefresh,
-              onLoading: logic.onLoading,
-              child: _buildListView(),
-            ),
-          ),),
-          Container(width: 2.w,color: PageStyle.c_e8e8e8,),
-          Expanded(child: Obx(()=>Stack(
-            children: [
-              if(logic.stackList.length>0)
-                Obx(()=>logic.stackList.value[logic.stackList.length-1])
-            ],
-          )))
-        ],
-      )),
+      body:
+        ClipRRect(borderRadius: BorderRadius.circular(10.r),child:Obx(() =>
+
+            Container(
+              color: Colors.transparent,
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(color: Colors.white),
+                    width: 230.w,child: SlidableAutoCloseBehavior(
+                    child: SmartRefresher(
+                      enablePullDown: true,
+                      enablePullUp: false,
+                      header: IMWidget.buildHeader(),
+                      footer: IMWidget.buildFooter(),
+                      controller: logic.refreshController,
+                      onRefresh: logic.onRefresh,
+                      onLoading: logic.onLoading,
+                      child: _buildListView(),
+                    ),
+                  ),),
+                  Container(width: 2.w,color: PageStyle.c_e8e8e8,),
+                  Expanded(child: Obx(()=>Stack(
+                    children: [
+                      if(logic.stackList.length>0)
+                        Obx(()=>logic.stackList.value[logic.stackList.length-1])
+                    ],
+                  )))
+                ],
+              ),
+            )
+
+        ),)
+
     );
   }
 
@@ -63,7 +73,7 @@ class ConversationPage extends StatelessWidget {
       // ),
       SliverList(
         delegate: SliverChildBuilderDelegate(
-              (context, index) => ConversationItemView(
+              (context, index) => conversationItemViewBkrs.ConversationItemViewBkrs(
             onTap: () => logic.toChatBigScreen(index),
             avatarUrl: logic.getAvatar(index),
             avatarBuilder: () => _buildCustomAvatar(index),
@@ -78,7 +88,7 @@ class ConversationPage extends StatelessWidget {
                 ? PageStyle.c_F3F3F3
                 : Colors.transparent,
             height: 50.h,
-            contentWidth: 100.w,
+            contentWidth: 90.w,
             avatarSize: 20.w,
             underline: false,
             titleStyle: PageStyle.ts_333333_12sp,
@@ -89,7 +99,7 @@ class ConversationPage extends StatelessWidget {
             isUserGroup: logic.isUserGroup(index),
             slideActions: [
               if (logic.isValidConversation(index))
-                SlideItemInfo(
+                conversationItemViewBkrs.SlideItemInfo(
                   flex: logic.isPinned(index) ? 3 : 2,
                   text:
                   logic.isPinned(index) ? StrRes.cancelTop : StrRes.top,
@@ -99,7 +109,7 @@ class ConversationPage extends StatelessWidget {
                   onTap: () => logic.pinConversation(index),
                 ),
               if (logic.existUnreadMsg(index))
-                SlideItemInfo(
+                conversationItemViewBkrs.SlideItemInfo(
                   flex: 3,
                   text: StrRes.markRead,
                   colors: haveReadColors,
@@ -107,7 +117,7 @@ class ConversationPage extends StatelessWidget {
                   width: 77.w,
                   onTap: () => logic.markMessageHasRead(index),
                 ),
-              SlideItemInfo(
+              conversationItemViewBkrs.SlideItemInfo(
                 flex: 2,
                 text: StrRes.remove,
                 colors: deleteColors,

@@ -43,8 +43,10 @@ class WaterMarkBgView extends StatelessWidget {
           fontSize: 24.sp,
           decoration: TextDecoration.none,
         );
-    double screenW = MediaQuery.of(context).size.width;
-    double screenH = MediaQuery.of(context).size.height;
+    // double screenW = MediaQuery.of(context).size.width;
+    // double screenH = MediaQuery.of(context).size.height;
+    double screenW = 380.w;
+    double screenH = 500.h;
     var size = _textSize(text, style);
     double itemW = size.width;
     double itemH = size.height;

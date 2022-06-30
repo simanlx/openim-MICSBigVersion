@@ -5,8 +5,18 @@ import 'package:mics_big_version/src/pages/home/chat/chat_setup/chat_setup_bindi
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/chat_setup_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/font_size/font_size_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/font_size/font_size_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/search_history_message/file/file_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/search_history_message/file/file_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/search_history_message/picture/picture_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/search_history_message/picture/picture_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/search_history_message/preview_message/preview_message_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/search_history_message/preview_message/preview_message_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/search_history_message/search_history_message_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/search_history_message/search_history_message_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/create_group/create_group_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/create_group/create_group_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/announcement_setup/announcement_setup_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/announcement_setup/announcement_setup_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/group_member_manager_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/group_member_manager_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/member_list/member_list_binding.dart';
@@ -15,6 +25,16 @@ import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_ma
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_member_manager/search_member/search_member_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_setup_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_setup_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/id/id_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/id/id_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/my_group_nickname/my_group_nickname_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/my_group_nickname/my_group_nickname_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/name_setup/name_setup_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/name_setup/name_setup_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/qrcode/qrcode_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/qrcode/qrcode_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/set_member_mute/set_member_mute_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/set_member_mute/set_member_mute_view.dart';
 import 'package:mics_big_version/src/pages/home/contacts/group_list/search_group/search_group_binding.dart';
 import 'package:mics_big_version/src/pages/home/contacts/group_list/search_group/search_group_view.dart';
 import 'package:mics_big_version/src/pages/select_contacts/select_contacts_binding.dart';
@@ -190,31 +210,31 @@ class AppPages {
       page: () => GroupSetupPage(),
       binding: GroupSetupBinding(),
     ),
-    // GetPage(
-    //   name: AppRoutes.GROUP_NAME_SETUP,
-    //   page: () => GroupNameSetupPage(),
-    //   binding: GroupNameSetupBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.GROUP_ANNOUNCEMENT_SETUP,
-    //   page: () => GroupAnnouncementSetupPage(),
-    //   binding: GroupAnnouncementSetupBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.GROUP_QRCODE,
-    //   page: () => GroupQrcodePage(),
-    //   binding: GroupQrcodeBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.GROUP_ID,
-    //   page: () => GroupIDPage(),
-    //   binding: GroupIDBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.MY_GROUP_NICKNAME,
-    //   page: () => MyGroupNicknamePage(),
-    //   binding: MyGroupNicknameBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.GROUP_NAME_SETUP,
+      page: () => GroupNameSetupPage(),
+      binding: GroupNameSetupBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.GROUP_ANNOUNCEMENT_SETUP,
+      page: () => GroupAnnouncementSetupPage(),
+      binding: GroupAnnouncementSetupBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.GROUP_QRCODE,
+      page: () => GroupQrcodePage(),
+      binding: GroupQrcodeBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.GROUP_ID,
+      page: () => GroupIDPage(),
+      binding: GroupIDBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.MY_GROUP_NICKNAME,
+      page: () => MyGroupNicknamePage(),
+      binding: MyGroupNicknameBinding(),
+    ),
     GetPage(
       name: AppRoutes.GROUP_MEMBER_MANAGER,
       page: () => GroupMemberManagerPage(),
@@ -340,26 +360,26 @@ class AppPages {
     //   page: () => GroupMessageReadPage(),
     //   binding: GroupMessageReadBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.SEARCH_HISTORY_MESSAGE,
-    //   page: () => SearchHistoryMessagePage(),
-    //   binding: SearchHistoryMessageBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.SEARCH_FILE,
-    //   page: () => SearchFilePage(),
-    //   binding: SearchFileBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.SEARCH_PICTURE,
-    //   page: () => SearchPicturePage(),
-    //   binding: SearchPictureBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.SET_MEMBER_MUTE,
-    //   page: () => SetMemberMutePage(),
-    //   binding: SetMemberMuteBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.SEARCH_HISTORY_MESSAGE,
+      page: () => SearchHistoryMessagePage(),
+      binding: SearchHistoryMessageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.SEARCH_FILE,
+      page: () => SearchFilePage(),
+      binding: SearchFileBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.SEARCH_PICTURE,
+      page: () => SearchPicturePage(),
+      binding: SearchPictureBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.SET_MEMBER_MUTE,
+      page: () => SetMemberMutePage(),
+      binding: SetMemberMuteBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.OA_NOTIFICATION_LIST,
     //   page: () => OANotificationPage(),
@@ -390,11 +410,11 @@ class AppPages {
     //   page: () => ChatHistoryPage(),
     //   binding: ChatHistoryBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.PREVIEW_CHAT_HISTORY,
-    //   page: () => PreviewMessagePage(),
-    //   binding: PreviewMessageBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.PREVIEW_CHAT_HISTORY,
+      page: () => PreviewMessagePage(),
+      binding: PreviewMessageBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.PATIENT_MANAGE,
     //   page: () => PatientManagePage(),

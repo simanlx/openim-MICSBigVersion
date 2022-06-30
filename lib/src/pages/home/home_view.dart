@@ -32,7 +32,8 @@ class HomePage extends StatelessWidget {
           Column(
             children: [
               SizedBox(height: 10.h,),
-              Container(width: 812.w,child: Stack(
+              Container(
+                width: 812.w,child: Stack(
                 children: [
                   Align(child: Obx(()=>MyTabBarView(
                     index: logic.index.value,

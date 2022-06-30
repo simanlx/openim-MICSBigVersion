@@ -7,6 +7,7 @@ import 'package:mics_big_version/src/pages/home/conversation/conversation_logic.
 import 'package:mics_big_version/src/pages/home/work_bench/work_bench_logic.dart';
 import 'package:mics_big_version/src/res/strings.dart';
 import 'package:mics_big_version/src/res/styles.dart';
+import 'package:mics_big_version/src/widgets/bkrs/ConversationItemViewBkrs.dart' as conversationItemViewBkrs;
 
 import 'workbench_main_logic.dart';
 
@@ -21,31 +22,36 @@ class WorkbenchMainPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Obx(() =>
-          ClipRRect(borderRadius: BorderRadius.circular(10.r),
-          child: Row(
+      body:
+        ClipRRect(borderRadius: BorderRadius.circular(10.r),
+    child:  Obx(() =>
+        Container(
+          color: Colors.white,
+          child:Row(
             children: [
-            Container(width: 250.w,child: _buildLeft(),),
-        Container(width: 2.w,color: PageStyle.c_e8e8e8,),
-        Expanded(child: Obx(()=>Column(
-          children: [
-            SizedBox(height: 20.h,),
-            Expanded(child: GridView.builder(
-                itemCount: logic.list2.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 1.0,
-                  crossAxisCount: 4,
-                ),
-                itemBuilder: (_, index){
-                  return _buildCommonPart(index);
-                }))
-          ],
-        )))
-        ],
-      ),
-          )
-
+              Container(
+                // decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(6.r),bottomLeft: Radius.circular(6.r)),color: Colors.blue),
+                width: 250.w,child: _buildLeft(),),
+              Container(width: 2.w,color: PageStyle.c_e8e8e8,),
+              Expanded(child: Obx(()=>Column(
+                children: [
+                  SizedBox(height: 20.h,),
+                  Expanded(child: GridView.builder(
+                      itemCount: logic.list2.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        childAspectRatio: 1.0,
+                        crossAxisCount: 4,
+                      ),
+                      itemBuilder: (_, index){
+                        return _buildCommonPart(index);
+                      }))
+                ],
+              )))
+            ],
           ),
+        )
+
+    ),)
     );
   }
 
@@ -90,7 +96,7 @@ class WorkbenchMainPage extends StatelessWidget {
         ),
         SliverList(
           delegate: SliverChildBuilderDelegate(
-                (context, index) => ConversationItemView(
+                (context, index) => conversationItemViewBkrs.ConversationItemViewBkrs(
               onTap: () {
                 var userInfo = logic.list[index];
                 conversationLogic.toChatBigScreenOther(
@@ -126,7 +132,7 @@ class WorkbenchMainPage extends StatelessWidget {
               isUserGroup: logic.isUserGroup(index),
               slideActions: [
                 if (logic.isValidConversation(index))
-                  SlideItemInfo(
+                  conversationItemViewBkrs.SlideItemInfo(
                     flex: logic.isPinned(index) ? 3 : 2,
                     text:
                     logic.isPinned(index) ? StrRes.cancelTop : StrRes.top,
@@ -136,7 +142,7 @@ class WorkbenchMainPage extends StatelessWidget {
                     onTap: () => logic.pinConversation(index),
                   ),
                 if (logic.existUnreadMsg(index))
-                  SlideItemInfo(
+                  conversationItemViewBkrs.SlideItemInfo(
                     flex: 3,
                     text: StrRes.markRead,
                     colors: haveReadColors,
@@ -144,7 +150,7 @@ class WorkbenchMainPage extends StatelessWidget {
                     width: 77.w,
                     onTap: () => logic.markMessageHasRead(index),
                   ),
-                SlideItemInfo(
+                conversationItemViewBkrs.SlideItemInfo(
                   flex: 2,
                   text: StrRes.remove,
                   colors: deleteColors,

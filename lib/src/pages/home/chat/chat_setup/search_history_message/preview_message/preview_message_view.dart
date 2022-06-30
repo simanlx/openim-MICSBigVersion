@@ -20,12 +20,15 @@ class PreviewMessagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: PageStyle.c_FFFFFF,
-      appBar: EnterpriseTitleBar.chatTitle(
+      appBar: EnterpriseTitleBar.back(
         title: logic.showName,
-        showOnlineStatus: false,
-        showCallButton: false,
-        showMoreButton: false,
-        onClose: () => Get.back(),
+        onTap: (){
+          Get.back();
+        },
+        // showOnlineStatus: false,
+        // showCallButton: false,
+        // showMoreButton: false,
+        // onClose: () => Get.back(),
       ),
       body: Obx(() => SafeArea(
             child: Column(

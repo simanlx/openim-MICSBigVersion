@@ -21,7 +21,7 @@ class GroupIDPage extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 58.h, left: 22.w, right: 22.w),
+            margin: EdgeInsets.only(top: 10.h, left: 22.w, right: 22.w),
             decoration: BoxDecoration(
               color: PageStyle.c_FFFFFF,
               borderRadius: BorderRadius.circular(10),
@@ -39,13 +39,13 @@ class GroupIDPage extends StatelessWidget {
                   padding: EdgeInsets.only(
                     left: 35.w,
                     right: 35.w,
-                    top: 35.w,
-                    bottom: 67.h,
+                    top: 20.h,
+                    bottom: 10.h,
                   ),
                   child: Row(
                     children: [
                       AvatarView(
-                        size: 50.h,
+                        size: 40.h,
                         url: logic.info.faceURL,
                       ),
                       SizedBox(
@@ -68,7 +68,7 @@ class GroupIDPage extends StatelessWidget {
                   style: PageStyle.ts_999999_14sp,
                 ),
                 SizedBox(
-                  height: 28.h,
+                  height: 20.h,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 47.w),
@@ -78,7 +78,7 @@ class GroupIDPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 89.h,
+                  height: 40.h,
                 ),
                 Material(
                   child: Ink(

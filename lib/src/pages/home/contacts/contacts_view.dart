@@ -23,7 +23,7 @@ class ContactsPage extends StatelessWidget {
           decoration: BoxDecoration(color: Colors.transparent),
           child: Row(
             children: [
-              Container(width: 220.w,color: Colors.transparent,child: CustomScrollView(
+              Container(width: 220.w,color: Colors.white,child: CustomScrollView(
                 slivers: [
                   _buildGroupItem(
                     icon: ImageRes.ic_newFriend,
@@ -194,7 +194,7 @@ class ContactsPage extends StatelessWidget {
     bool Function()? onDismiss,
   }) =>
       Ink(
-        color: Colors.white,
+        color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
           child: viewType == 2

@@ -31,7 +31,7 @@ class GroupNameSetupPage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 67.h,
+                  height: 10.h,
                 ),
                 Text(
                   StrRes.modifyGroupName,
@@ -45,12 +45,16 @@ class GroupNameSetupPage extends StatelessWidget {
                   style: PageStyle.ts_333333_15sp,
                 ),
                 SizedBox(
-                  height: 46.h,
+                  height: 10.h,
                 ),
                 Container(
                   decoration: DottedDecoration(),
                 ),
+                SizedBox(
+                  height: 5.h,
+                ),
                 Container(
+                  padding: EdgeInsets.only(bottom: 5.h),
                   decoration: BoxDecoration(
                     border: BorderDirectional(
                       bottom: BorderSide(
@@ -97,7 +101,7 @@ class GroupNameSetupPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 259.h,
+                  height: 50.h,
                 ),
                 Obx(() => Ink(
                       width: 149.w,

@@ -26,7 +26,7 @@ class MinePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Obx(()=>Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6.r)),color: Colors.white),
+        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10.r)),color: Colors.white),
         child: Row(
           children: [
             buildLeft(),
@@ -156,17 +156,18 @@ class MinePage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(height: 10.h),
         Text("个人信息",style: PageStyle.ts_333333_18sp,),
         SizedBox(height: 10.h),
         Container(height: 2.w,color: PageStyle.c_e8e8e8,margin: EdgeInsets.fromLTRB(0, 0, 20.h,0)),
         SizedBox(height: 10.h),
-        Text("登录账号:${logic.imLogic.userInfo.value.phoneNumber}"),
+        Text("登录账号:${logic.imLogic.userInfo.value.phoneNumber}",style: TextStyle(fontSize: 14.sp),),
         SizedBox(height: 10.h),
-        Text("管理员姓名:${logic.imLogic.userInfo.value.nickname}"),
+        Text("管理员姓名:${logic.imLogic.userInfo.value.nickname}",style: TextStyle(fontSize: 14.sp)),
         SizedBox(height: 10.h),
-        Text("所在部门:"),
+        Text("所在部门:",style: TextStyle(fontSize: 14.sp)),
         SizedBox(height: 10.h),
-        Text("手机号:${logic.imLogic.userInfo.value.phoneNumber}"),
+        Text("手机号:${logic.imLogic.userInfo.value.phoneNumber}",style: TextStyle(fontSize: 14.sp)),
         SizedBox(height: 10.h),
       ],
     ),);

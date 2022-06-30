@@ -15,7 +15,7 @@ class WorkbenchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: PageStyle.c_FFFFFF,
+      backgroundColor: Colors.transparent,
       body: Obx(()=>Stack(
         children: [
           if(logic.stackList.length>0)

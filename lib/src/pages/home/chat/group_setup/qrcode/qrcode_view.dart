@@ -22,10 +22,10 @@ class GroupQrcodePage extends StatelessWidget {
       body: Container(
         alignment: Alignment.topCenter,
         child: Container(
-          margin: EdgeInsets.only(top: 58.h),
+          margin: EdgeInsets.only(top: 10.h),
           padding: EdgeInsets.symmetric(horizontal: 30.w),
           width: 332.w,
-          height: 444.h,
+          height: 300.h,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
@@ -39,12 +39,12 @@ class GroupQrcodePage extends StatelessWidget {
           child: Stack(
             children: [
               Positioned(
-                top: 31.h,
+                top: 20.h,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     AvatarView(
-                      size: 58.h,
+                      size: 40.h,
                       url: logic.info.faceURL,
                       isUserGroup: true,
                     ),
@@ -64,7 +64,7 @@ class GroupQrcodePage extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 134.h,
+                top: 70.h,
                 width: 272.w,
                 child: Text(
                   StrRes.groupQrcodeTips,
@@ -73,7 +73,7 @@ class GroupQrcodePage extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 184.h,
+                top: 100.h,
                 width: 272.w,
                 child: Container(
                   alignment: Alignment.center,
