@@ -8,8 +8,14 @@ import 'package:mics_big_version/src/pages/home/contacts/department_friend_list/
 import 'package:mics_big_version/src/pages/home/contacts/frequent_contacts/frequent_contacts_logic.dart';
 import 'package:mics_big_version/src/pages/home/contacts/frequent_contacts/frequent_contacts_view.dart';
 import 'package:mics_big_version/src/pages/home/contacts/friend_list/friend_list_view.dart';
+import 'package:mics_big_version/src/pages/home/contacts/group_application/group_application_logic.dart';
+import 'package:mics_big_version/src/pages/home/contacts/group_application/group_application_view.dart';
 import 'package:mics_big_version/src/pages/home/contacts/group_list/group_list_logic.dart';
 import 'package:mics_big_version/src/pages/home/contacts/group_list/group_list_view.dart';
+import 'package:mics_big_version/src/pages/home/contacts/new_friend/new_friend_logic.dart';
+import 'package:mics_big_version/src/pages/home/contacts/new_friend/new_friend_view.dart';
+import 'package:mics_big_version/src/pages/home/contacts/tag_group/tag_group_logic.dart';
+import 'package:mics_big_version/src/pages/home/contacts/tag_group/tag_group_view.dart';
 import 'package:mics_big_version/src/routes/app_navigator.dart';
 import 'package:mics_big_version/src/utils/data_persistence.dart';
 import 'department_friend_list/depart_list_friend_view.dart';
@@ -187,6 +193,31 @@ class ContactsLogic extends GetxController {
     Get.delete<GroupListLogic>();
     Get.put(GroupListLogic());
     var page = GroupListPage();
+    stackList.add(page);
+  }
+
+  void viewTag() {
+    // AppNavigator.startTag();
+    stackList.clear();
+    Get.delete<TagGroupLogic>();
+    Get.put(TagGroupLogic());
+    var page = TagGroupPage();
+    stackList.add(page);
+  }
+
+  void showNewFriend() {
+    stackList.clear();
+    Get.delete<NewFriendLogic>();
+    Get.put(NewFriendLogic());
+    var page = NewFriendPage();
+    stackList.add(page);
+  }
+
+  void viewGroupApplication() {
+    stackList.clear();
+    Get.delete<GroupApplicationLogic>();
+    Get.put(GroupApplicationLogic());
+    var page = GroupApplicationPage();
     stackList.add(page);
   }
 

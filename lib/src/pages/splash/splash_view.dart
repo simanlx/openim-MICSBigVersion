@@ -34,7 +34,7 @@ class SplashPage extends StatelessWidget {
             width: 812.w,
             child: Center(
               child: Text(
-                StrRes.welcomeHint,
+                "安全稳定的智能医疗通讯",
                 style: PageStyle.ts_333333_16sp,
               ),
             ),

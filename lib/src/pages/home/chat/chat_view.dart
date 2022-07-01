@@ -14,6 +14,7 @@ import 'package:mics_big_version/src/sdk_extension/message_manager.dart';
 import 'package:mics_big_version/src/utils/im_util.dart';
 import 'package:mics_big_version/src/widgets/CustomeCardWidget.dart';
 import 'package:mics_big_version/src/widgets/avatar_view.dart';
+import 'package:mics_big_version/src/widgets/bkrs/ChatEmojiViewBkrs.dart';
 import 'package:mics_big_version/src/widgets/bkrs/ChatVoiceRecordLayoutBkrs.dart';
 import 'package:mics_big_version/src/widgets/chat_listview.dart';
 import 'package:mics_big_version/src/widgets/custom_sure_share_dialog.dart';
@@ -210,7 +211,7 @@ class ChatPage extends StatelessWidget {
                               onDelete: () => logic.mergeDelete(),
                               onMergeForward: () => logic.mergeForward(),
                             ),
-                            emojiView: ChatEmojiView(
+                            emojiView: ChatEmojiViewBkrs(
                               onAddEmoji: logic.onAddEmoji,
                               onDeleteEmoji: logic.onDeleteEmoji,
                               onAddFavorite: () => logic.emojiManage(),

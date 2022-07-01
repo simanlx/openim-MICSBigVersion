@@ -7,6 +7,7 @@ import 'package:flutter_openim_widget/flutter_openim_widget.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:mics_big_version/src/sdk_extension/message_manager.dart';
+import 'package:mics_big_version/src/widgets/im_widget.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 
@@ -182,12 +183,19 @@ mixin OpenLive {
     });
   }
 
+  //上次完全挂断的时间戳
+  num lastGdTime = 0;
+
   call(
     CallObj obj,
     CallType type,
     String? groupID,
     List<String> inviteeUserIDList,
   ) {
+    if(DateTime.now().millisecondsSinceEpoch - lastGdTime<5000){
+      IMWidget.showToast("通话太频繁,请于5秒后再试");
+      return;
+    }
     var mediaType = type == CallType.audio ? 'audio' : 'video';
     var signal = SignalingInfo(
       opUserID: OpenIM.iMManager.uid,
@@ -294,6 +302,7 @@ mixin OpenLive {
       signaling,
       fields: duration,
     ));
+    lastGdTime = DateTime.now().millisecondsSinceEpoch;
     // if (isPositive) {
     //   return OpenIM.iMManager.signalingManager.signalingHungUp(
     //     info: SignalingInfo(

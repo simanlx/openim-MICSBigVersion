@@ -1,8 +1,12 @@
 import 'package:get/get.dart';
+import 'package:mics_big_version/src/pages/add_friend/search/search_binding.dart';
+import 'package:mics_big_version/src/pages/add_friend/search/search_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/background_image/background_image_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/background_image/background_image_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/chat_setup_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/chat_setup_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/emoji_manage/emoji_manage_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/chat_setup/emoji_manage/emoji_manage_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/font_size/font_size_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/font_size/font_size_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/chat_setup/search_history_message/file/file_binding.dart';
@@ -27,6 +31,8 @@ import 'package:mics_big_version/src/pages/home/chat/group_setup/group_setup_bin
 import 'package:mics_big_version/src/pages/home/chat/group_setup/group_setup_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/id/id_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/id/id_view.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/message_read/message_read_binding.dart';
+import 'package:mics_big_version/src/pages/home/chat/group_setup/message_read/message_read_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/my_group_nickname/my_group_nickname_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/my_group_nickname/my_group_nickname_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/name_setup/name_setup_binding.dart';
@@ -35,8 +41,14 @@ import 'package:mics_big_version/src/pages/home/chat/group_setup/qrcode/qrcode_b
 import 'package:mics_big_version/src/pages/home/chat/group_setup/qrcode/qrcode_view.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/set_member_mute/set_member_mute_binding.dart';
 import 'package:mics_big_version/src/pages/home/chat/group_setup/set_member_mute/set_member_mute_view.dart';
+import 'package:mics_big_version/src/pages/home/contacts/group_application/handle_application/handle_application_binding.dart';
+import 'package:mics_big_version/src/pages/home/contacts/group_application/handle_application/handle_application_view.dart';
 import 'package:mics_big_version/src/pages/home/contacts/group_list/search_group/search_group_binding.dart';
 import 'package:mics_big_version/src/pages/home/contacts/group_list/search_group/search_group_view.dart';
+import 'package:mics_big_version/src/pages/home/contacts/tag_group/new/new_tag_group_binding.dart';
+import 'package:mics_big_version/src/pages/home/contacts/tag_group/new/new_tag_group_view.dart';
+import 'package:mics_big_version/src/pages/home/contacts/tag_group/tag_group_binding.dart';
+import 'package:mics_big_version/src/pages/home/contacts/tag_group/tag_group_view.dart';
 import 'package:mics_big_version/src/pages/select_contacts/select_contacts_binding.dart';
 import 'package:mics_big_version/src/pages/select_contacts/select_contacts_view.dart';
 import 'package:mics_big_version/src/pages/webview/zhp_webview/zhp_webview_binding.dart';
@@ -160,11 +172,11 @@ class AppPages {
     //   page: () => AddFriendPage(),
     //   binding: AddFriendBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.ADD_FRIEND_BY_SEARCH,
-    //   page: () => AddFriendBySearchPage(),
-    //   binding: AddFriendBySearchBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.ADD_FRIEND_BY_SEARCH,
+      page: () => AddFriendBySearchPage(),
+      binding: AddFriendBySearchBinding(),
+    ),
     GetPage(
       name: AppRoutes.SEND_FRIEND_REQUEST,
       page: () => SendFriendRequestPage(),
@@ -315,11 +327,11 @@ class AppPages {
     //   page: () => GroupApplicationPage(),
     //   binding: GroupApplicationBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.HANDLE_GROUP_APPLICATION,
-    //   page: () => HandleGroupApplicationPage(),
-    //   binding: HandleGroupApplicationBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.HANDLE_GROUP_APPLICATION,
+      page: () => HandleGroupApplicationPage(),
+      binding: HandleGroupApplicationBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.ORGANIZATION,
     //   page: () => OrganizationPage(),
@@ -330,36 +342,36 @@ class AppPages {
     //   page: () => ForgetPasswordPage(),
     //   binding: ForgetPasswordBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.EMOJI_MANAGE,
-    //   page: () => EmojiManagePage(),
-    //   binding: EmojiManageBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.EMOJI_MANAGE,
+      page: () => EmojiManagePage(),
+      binding: EmojiManageBinding(),
+    ),
     GetPage(
       name: AppRoutes.FONT_SIZE,
       page: () => FontSizePage(),
       binding: FontSizeBinding(),
     ),
-    // GetPage(
-    //   name: AppRoutes.TAG,
-    //   page: () => TagGroupPage(),
-    //   binding: TagGroupBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.TAG_NEW,
-    //   page: () => NewTagGroupPage(),
-    //   binding: NewTagGroupBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.TAG,
+      page: () => TagGroupPage(),
+      binding: TagGroupBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.TAG_NEW,
+      page: () => NewTagGroupPage(),
+      binding: NewTagGroupBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.ALL_USERS,
     //   page: () => AllUsersPage(),
     //   binding: AllUsersBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.GROUP_HAVE_READ,
-    //   page: () => GroupMessageReadPage(),
-    //   binding: GroupMessageReadBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.GROUP_HAVE_READ,
+      page: () => GroupMessageReadPage(),
+      binding: GroupMessageReadBinding(),
+    ),
     GetPage(
       name: AppRoutes.SEARCH_HISTORY_MESSAGE,
       page: () => SearchHistoryMessagePage(),

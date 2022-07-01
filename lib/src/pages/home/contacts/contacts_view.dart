@@ -35,13 +35,17 @@ class ContactsPage extends StatelessWidget {
                   _buildGroupItem(
                     icon: ImageRes.ic_newFriend,
                     label: StrRes.newFriend,
-                    onTap: (){},
+                    onTap: (){
+                      logic.showNewFriend();
+                    },
                     count: homeLogic.unhandledFriendApplicationCount.value,
                   ),
                   _buildGroupItem(
                     icon: ImageRes.ic_groupApplicationNotification,
                     label: StrRes.groupApplicationNotification,
-                    onTap: () {},
+                    onTap: () {
+                      logic.viewGroupApplication();
+                    },
                     count: homeLogic.unhandledGroupApplicationCount.value,
                   ),
                   _buildGroupItem(
@@ -63,7 +67,9 @@ class ContactsPage extends StatelessWidget {
                     icon: ImageRes.ic_tag,
                     label: StrRes.tag,
                     showUnderline: false,
-                    onTap: (){},
+                    onTap: (){
+                      logic.viewTag();
+                    },
                   ),
                   _buildOrganizationView(),
                   // _buildSubTitle(),
