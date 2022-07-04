@@ -115,7 +115,7 @@ class Config {
 
   //北科瑞声自己的接口
   static String bkrsApiUrl() {
-    return "https://people-voip.raisound.com/vserver";
+    return "https://mics-dev.raisound.com/vserver";
   }
 
   /// 默认公司配置

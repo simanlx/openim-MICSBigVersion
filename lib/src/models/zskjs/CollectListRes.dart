@@ -1,4 +1,6 @@
 
+import 'package:flutter_openim_widget/flutter_openim_widget.dart';
+
 import 'PatientDetailRes.dart';
 import 'YlbwListBean.dart';
 
@@ -104,6 +106,7 @@ class Content {
   String? video_path;
   PatientDetailRes? patient;
   YlbwListBeanData? note;
+  Message? message;
 
 
   Content({this.txt});
@@ -122,6 +125,9 @@ class Content {
     if (json["note"]!=null) {
       note = YlbwListBeanData.fromJson(json["note"]);
     }
+    if (json["message"]!=null) {
+      message = Message.fromJson(json["message"]);
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -138,6 +144,9 @@ class Content {
     }
     if (note!=null) {
       data['note'] = this.note!.toJson();
+    }
+    if (message!=null) {
+      data['message'] = this.message!.toJson();
     }
     return data;
   }

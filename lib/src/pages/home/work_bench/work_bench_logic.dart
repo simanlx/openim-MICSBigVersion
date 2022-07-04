@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:mics_big_version/src/common/apis.dart';
 import 'package:mics_big_version/src/core/controller/im_controller.dart';
 import 'package:mics_big_version/src/models/common_part_info.dart';
+import 'package:mics_big_version/src/pages/bkparts/my_collection/my_collection_logic.dart';
+import 'package:mics_big_version/src/pages/bkparts/my_collection/my_collection_view.dart';
 import 'package:mics_big_version/src/pages/bkparts/patient_manage/patient_manage_logic.dart';
 import 'package:mics_big_version/src/pages/bkparts/patient_manage/patient_manage_view.dart';
 import 'package:mics_big_version/src/pages/bkparts/zskjs/ZskjsMainLogic.dart';
@@ -618,6 +620,10 @@ class WorkbenchLogic extends GetxController {
 
   void skipWdsc() {
     // AppNavigator.startWdsc();
+    Get.delete<MyCollectionLogic>();
+    Get.put(MyCollectionLogic());
+    var page = MyCollectionPage();
+    stackList.add(page);
   }
 
   void skipXttz() {

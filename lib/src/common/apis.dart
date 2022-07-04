@@ -1110,5 +1110,17 @@ class Apis {
       return Future.error(e);
     }
   }
-
+  //删除收藏
+  static Future deleteLike(id) async{
+    try {
+      var data = {
+        "id":id,
+      };
+      var res = await HttpUtil.postBkrs(Urls.deleteLike,data: data,options: _tokenOptionsBkrs());
+      return Future.value("删除成功");
+    } catch (e) {
+      print('e:$e');
+      return Future.error(e);
+    }
+  }
 }

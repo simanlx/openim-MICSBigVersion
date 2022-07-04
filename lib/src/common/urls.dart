@@ -23,7 +23,7 @@ class Urls {
   static var setPwd = "${Config.appAuthUrl()}/demo/password";
   static var resetPwd = "${Config.appAuthUrl()}/demo/reset_password";
   // static var login = "${Config.appAuthUrl()}/demo/login";
-    static var login = "https://people-voip.raisound.com/vserver/pda/device/login";
+    static var login = "${Config.bkrsApiUrl()}/pda/device/login";
   static var upgrade = "${Config.appAuthUrl()}/app/check";
 
   /// office
