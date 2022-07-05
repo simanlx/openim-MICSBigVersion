@@ -3,6 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:mics_big_version/src/pages/home/mine/mine_view.dart';
+import 'package:mics_big_version/src/pages/home/work_bench/work_bench_logic.dart';
+import 'package:mics_big_version/src/pages/home/work_bench/workbench_main/workbench_main_view.dart';
+import 'package:mics_big_version/src/widgets/bkrs/MoveAbleWidget.dart';
+import 'package:mics_big_version/src/widgets/bkrs/SpeechListeningWidget.dart';
 import '../../res/images.dart';
 import '../../res/styles.dart';
 import '../../widgets/TabBarView.dart';
@@ -14,12 +18,14 @@ import 'home_logic.dart';
 class HomePage extends StatelessWidget {
 
   final logic = Get.find<HomeLogic>();
-
+  final workbenchLogic = Get.find<WorkbenchLogic>();
+  var glkey = GlobalKey();
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       body: Obx(() => Stack(
+        key: glkey,
         children: [
           Positioned(child: Container(
             width: 812.w,
@@ -84,7 +90,10 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 10.h)
             ],
-          )
+          ),
+          Obx(()=>Visibility(
+              visible: logic.index == 0?workbenchLogic.stackList.length == 1:true,
+              child: MoveAbleWidget(child: SpeechListeningWidget(), stackKey: glkey,offsetX: 900.w,offsetY: 800.h)))
         ],
       )),
     );

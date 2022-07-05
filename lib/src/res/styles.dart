@@ -5,6 +5,7 @@ class PageStyle {
   static const c_FFFFFF = Color(0xFFFFFFFF);
   static const c_000000 = Color(0xFF000000);
   static const c_F6F6F6 = Color(0xFFF6F6F6);
+  static const c_F7F7F7 = Color(0xFFF7F7F7);
   static const c_F8F8F8 = Color(0xFFF8F8F8);
   static const c_1D6BED = Color(0xFF1D6BED);
   static const c_1B72EC = Color(0xFF1B72EC);
@@ -351,7 +352,10 @@ class PageStyle {
     fontSize: 16.sp,
     color: Color(0xFF9F9F9F),
   );
-
+  static var ts_9F9F9F_12sp = TextStyle(
+    fontSize: 12.sp,
+    color: Color(0xFF9F9F9F),
+  );
   static var ts_ADADAD_10sp = TextStyle(
     fontSize: 10.sp,
     color: Color(0xFFADADAD),

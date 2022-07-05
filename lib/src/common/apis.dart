@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_openim_sdk/flutter_openim_sdk.dart';
 import 'package:flutter_openim_widget/flutter_openim_widget.dart';
 import 'package:mics_big_version/src/common/urls.dart';
+import 'package:mics_big_version/src/models/AppVersionInfo.dart';
 import '../models/common_part_info.dart';
 import '../models/login_certificate.dart';
 import '../models/online_status.dart';
@@ -1118,6 +1119,20 @@ class Apis {
       };
       var res = await HttpUtil.postBkrs(Urls.deleteLike,data: data,options: _tokenOptionsBkrs());
       return Future.value("删除成功");
+    } catch (e) {
+      print('e:$e');
+      return Future.error(e);
+    }
+  }
+
+  //获取版本信息
+  static Future<AppVersionInfo> getAppVersionInfo(String type) async{
+    try {
+      var data = {
+        "type":type,
+      };
+      var res = await HttpUtil.postBkrs(Urls.getAppVersionInfo,showToast: false,data: data,options: _tokenOptionsBkrs());
+      return Future.value(res == null?AppVersionInfo():AppVersionInfo.fromJson(res));
     } catch (e) {
       print('e:$e');
       return Future.error(e);

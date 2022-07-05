@@ -77,7 +77,7 @@ class WorkbenchMainPage extends StatelessWidget {
         SliverToBoxAdapter(
           child: Row(children: [
             SizedBox(
-              width: 22.w,
+              width: 14.w,
             ),
             Text(logic.unreadMsgCount == 0?"未读消息":"未读消息(${logic.unreadMsgCount})",style: TextStyle(fontSize: 14.sp,color: Colors.black),),
             SizedBox(

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_openim_widget/flutter_openim_widget.dart';
 import 'package:get/get.dart';
 import 'package:mics_big_version/src/common/apis.dart';
@@ -15,6 +16,8 @@ import 'package:mics_big_version/src/pages/bkparts/zskjs/ZskjsMainPage.dart';
 import 'package:mics_big_version/src/pages/home/home_logic.dart';
 import 'package:mics_big_version/src/pages/home/work_bench/workbench_main/workbench_main_logic.dart';
 import 'package:mics_big_version/src/pages/home/work_bench/workbench_main/workbench_main_view.dart';
+import 'package:mics_big_version/src/pages/system_notice/SystemNoticeListLogic.dart';
+import 'package:mics_big_version/src/pages/system_notice/SystemNoticeListPage.dart';
 import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_detail/MedicalMemoDetailPage.dart';
 import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_main_logic.dart';
 import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_main_view.dart';
@@ -611,9 +614,9 @@ class WorkbenchLogic extends GetxController {
     stackList.add(page);
   }
 
-  void skipYlbw() {
+  void skipYlbw({autoAdd = false,autoAddAndRecord = false}) {
     Get.delete<YlbwMainLogic>();
-    Get.put(YlbwMainLogic());
+    Get.put(YlbwMainLogic(autoAdd: autoAdd,autoAddAndRecord: autoAddAndRecord));
     var page = YlbwMainPage();
     stackList.add(page);
   }
@@ -627,18 +630,11 @@ class WorkbenchLogic extends GetxController {
   }
 
   void skipXttz() {
-    // AppNavigator.startXttz();
+    Get.delete<SystemNoticeListLogic>();
+    Get.put(SystemNoticeListLogic());
+    var page = SystemNoticeListPage();
+    stackList.add(page);
   }
-  //
-  // void removeUnread(String conversationID) {
-  //   var a = list.where((item){
-  //     if (item.conversationID == conversationID) {
-  //       return false;
-  //     }
-  //     return true;
-  //   }).toList();
-  //   list.value = a;
-  // }
 
   @override
   void dispose() {
@@ -659,8 +655,15 @@ class WorkbenchLogic extends GetxController {
       }
     }
   }
+  
+  MethodChannel methodChannel = MethodChannel("channel_big_version");
+  var token = DataPersistence.getLoginCertificate()!.token;
 
   void skipZhp() {
+    // // var url = "https://ting.raisound.com/mics?token=${token}&phone = ${imLogic.userInfo.value.phoneNumber}";
+    // var url = "https://ting.raisound.com/mics/";
+    // // var url = "https://www.baidu.com";
+    // methodChannel.invokeMethod("to_zhp_activity",url);
     Get.toNamed(AppRoutes.ZHP_WEBVIEW);
   }
 }

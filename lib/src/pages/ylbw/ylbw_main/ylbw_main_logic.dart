@@ -11,6 +11,12 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 class YlbwMainLogic extends GetxController {
 
   var stackList = <Widget>[].obs;
+  var autoAdd = false;
+  var autoAddAndRecord = false;
+
+  YlbwMainLogic({this.autoAdd = false,this.autoAddAndRecord= false}){
+
+  }
 
 
   var showSearch = false.obs;
@@ -41,6 +47,13 @@ class YlbwMainLogic extends GetxController {
     callback = (arg){
       getList("");
     };
+    if(autoAdd){
+      toAdd();
+    }
+
+    if(autoAddAndRecord){
+      toAdd(autoAddAndRecord:autoAddAndRecord);
+    }
     busBkrs.on("updateYlbw",callback!);
     super.onReady();
   }
@@ -61,7 +74,7 @@ class YlbwMainLogic extends GetxController {
         allCount.value =  value.total??0,
         list.clear(),
         list.addAll(value.data!),
-        if(value.data!.length>0 && isFirstLoad){
+        if(value.data!.length>0 && isFirstLoad && !autoAdd && !autoAddAndRecord){
           toDetail(value.data![0])
         }
       }
@@ -92,9 +105,9 @@ class YlbwMainLogic extends GetxController {
 
   }
 
-  void toAdd(){
+  void toAdd({autoAddAndRecord = false}){
     stackList.clear();
-    stackList.add(new MedicalMemoDetailPage(key: UniqueKey()));
+    stackList.add(new MedicalMemoDetailPage(key: UniqueKey(),autoRecord: autoAddAndRecord));
   }
 
   void toDetail(YlbwListBeanData item) {

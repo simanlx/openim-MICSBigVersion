@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:mics_big_version/src/core/controller/SpeechServiceController.dart';
 import 'package:mics_big_version/src/res/strings.dart';
 import 'package:mics_big_version/src/routes/app_pages.dart';
 import 'package:mics_big_version/src/utils/logger_util.dart';
@@ -71,6 +72,7 @@ class InitBinding extends Bindings {
     Get.put<IMController>(IMController());
     Get.put<JPushController>(JPushController());
     Get.put<CacheController>(CacheController());
+    Get.put<SpeechServiceController>(SpeechServiceController());
     // Get.put<SpeechServiceController>(SpeechServiceController());
     // Get.put<DoBySpeechLogic>(DoBySpeechLogic());
     // Get.lazyPut(() => JPushController());

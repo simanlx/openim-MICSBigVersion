@@ -90,6 +90,7 @@ abstract class AppRoutes {
   static const PATIENT_GDJL_PAGE = "/patient_gdjl_page";
   static const DO_BY_SPEECH = "/do_by_speech";
   static const ZHP_WEBVIEW = "/zhp_webview";
+  static const YSXYPAGE = "/YsxyPage";
 }
 
 extension RoutesExtension on String {

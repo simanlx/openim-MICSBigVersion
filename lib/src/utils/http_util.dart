@@ -71,6 +71,7 @@ class HttpUtil {
   static Future postBkrs(
       String path, {
         dynamic data,
+        bool showToast = true,
         Map<String, dynamic>? queryParameters,
         Options? options,
         CancelToken? cancelToken,
@@ -91,17 +92,20 @@ class HttpUtil {
       if (resp.code == "200") {
         return resp.data;
       } else {
-        print("333333333");
-        IMWidget.showToast(resp.description);
+        if(showToast){
+          IMWidget.showToast(resp.description);
+        }
         return Future.error(resp.description);
       }
     } catch (error) {
       if (error is DioError) {
-        print("11111111");
-        IMWidget.showToast(error.response.toString());
+        if(showToast){
+          IMWidget.showToast(error.response.toString());
+        }
       } else {
-        print("222222222");
-        IMWidget.showToast(error.toString());
+        if(showToast){
+          IMWidget.showToast(error.toString());
+        }
       }
       return Future.error(error);
     }

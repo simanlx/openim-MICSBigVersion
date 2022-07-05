@@ -36,6 +36,9 @@ class ZhpWebviewPage extends StatelessWidget {
                 String origin,
                 List<String> resources) async{
               print("webview 请求的权限  ${resources}");
+              return PermissionRequestResponse(
+                  resources: resources,
+                  action: PermissionRequestResponseAction.GRANT);
             }
         )
         // aa.WebView(

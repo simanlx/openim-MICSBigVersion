@@ -51,7 +51,7 @@ class Config {
 
   /// ip
   static const defaultIp = "101.43.113.42"; //43.128.5.63"; //121.37.25.71 //101.43.113.42(汪群的)
-  // static const defaultIp = "https://jialai-voip.raisound.com"; //43.128.5.63"; //121.37.25.71 //101.43.113.42(汪群的)
+  static const defaultAddress = "https://mics-dev.raisound.com";
 
   /// 服务器IP
   static String serverIp() {
@@ -61,7 +61,8 @@ class Config {
       ip = server['serverIP'];
       print('缓存serverIP: $ip');
     }
-    return ip ?? defaultIp;
+    // return ip ?? defaultIp;
+    return ip ?? defaultAddress;
   }
 
   /// 登录注册手机验 证服务器地址
@@ -72,8 +73,8 @@ class Config {
       url = server['authUrl'];
       print('缓存authUrl: $url');
     }
-    return url ?? "http://$defaultIp:10004";
-    // return url ?? "https://jialai-voip.raisound.com/demo";
+    // return url ?? "http://$defaultIp:10004";
+    return url ?? defaultAddress;
   }
 
   /// IM sdk api地址
@@ -84,8 +85,8 @@ class Config {
       url = server['apiUrl'];
       print('缓存apiUrl: $url');
     }
-    return url ?? "http://$defaultIp:10002";
-    // return url ?? 'https://jialai-voip.raisound.com';
+    // return url ?? "http://$defaultIp:10002";
+    return url ?? defaultAddress;
   }
 
   /// IM ws 地址
@@ -96,26 +97,26 @@ class Config {
       url = server['wsUrl'];
       print('缓存wsUrl: $url');
     }
-    return url ?? 'ws://$defaultIp:10001';
-    // return url ?? 'wss://jialai-voip.raisound.com/msg_gateway';
+    // return url ?? 'ws://$defaultIp:10001';
+    return url ?? 'wss://mics-dev.raisound.com/msg_gateway';
   }
 
-  /// 音视频通话地址
-  static String callUrl() {
-    var url;
-    var server =  DataPersistence.getServerConfig();
-    if (null != server) {
-      url = server['callUrl'];
-      print('缓存callUrl: $url');
-    }
-    return url ?? 'ws://$defaultIp:7880';
-    // return url ?? 'wss://jialai-voip.raisound.com';
-  }
+  // /// 音视频通话地址
+  // static String callUrl() {
+  //   var url;
+  //   var server =  DataPersistence.getServerConfig();
+  //   if (null != server) {
+  //     url = server['callUrl'];
+  //     print('缓存callUrl: $url');
+  //   }
+  //   return url ?? 'ws://$defaultIp:7880';
+  //   // return url ?? 'wss://jialai-voip.raisound.com';
+  // }
 
 
   //北科瑞声自己的接口
   static String bkrsApiUrl() {
-    return "https://mics-dev.raisound.com/vserver";
+    return "$defaultAddress/vserver";
   }
 
   /// 默认公司配置

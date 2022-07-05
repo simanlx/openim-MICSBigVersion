@@ -24,14 +24,19 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
+              // onDoubleTap: () => logic.toServerConfig(),
               // Image.asset(
               //   "assets/images/app_mics.png",
               //   width: 52.w,
               //   height: 53.h,
               // ),
-              Text(
-                "深圳市人民医院MICS",
-                style: TextStyle(fontSize: 18.sp),
+              GestureDetector(
+                onDoubleTap: () => logic.toServerConfig(),
+                behavior: HitTestBehavior.opaque,
+                child: Text(
+                  "深圳市人民医院MICS",
+                  style: TextStyle(fontSize: 18.sp),
+                ),
               ),
               SizedBox(height: 20.h),
               Row(children: [
@@ -42,6 +47,10 @@ class LoginPage extends StatelessWidget {
               ],),
               TextField(
                 controller: logic.phoneCtrl,
+                decoration: InputDecoration(
+                  hintText: "请输入手机号",
+                  hintStyle: PageStyle.ts_333333_opacity40p_12sp,
+                ),
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],keyboardType: TextInputType.number,maxLength: 11,),
               SizedBox(height: 20.h),
               Obx(() => PwdInputBox(

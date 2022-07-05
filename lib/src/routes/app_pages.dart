@@ -49,6 +49,12 @@ import 'package:mics_big_version/src/pages/home/contacts/tag_group/new/new_tag_g
 import 'package:mics_big_version/src/pages/home/contacts/tag_group/new/new_tag_group_view.dart';
 import 'package:mics_big_version/src/pages/home/contacts/tag_group/tag_group_binding.dart';
 import 'package:mics_big_version/src/pages/home/contacts/tag_group/tag_group_view.dart';
+import 'package:mics_big_version/src/pages/home/mine/about_us/ysxy/ysxy_binding.dart';
+import 'package:mics_big_version/src/pages/home/mine/about_us/ysxy/ysxy_view.dart';
+import 'package:mics_big_version/src/pages/home/mine/add_my_method/add_my_method_binding.dart';
+import 'package:mics_big_version/src/pages/home/mine/add_my_method/add_my_method_view.dart';
+import 'package:mics_big_version/src/pages/home/mine/blacklist/blacklist_binding.dart';
+import 'package:mics_big_version/src/pages/home/mine/blacklist/blacklist_view.dart';
 import 'package:mics_big_version/src/pages/select_contacts/select_contacts_binding.dart';
 import 'package:mics_big_version/src/pages/select_contacts/select_contacts_view.dart';
 import 'package:mics_big_version/src/pages/webview/zhp_webview/zhp_webview_binding.dart';
@@ -272,16 +278,16 @@ class AppPages {
     //   page: () => AccountSetupPage(),
     //   binding: AccountSetupBinding(),
     // ),
-    // GetPage(
-    //   name: AppRoutes.ADD_MY_METHOD,
-    //   page: () => AddMyMethodPage(),
-    //   binding: AddMyMethodBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.BLACKLIST,
-    //   page: () => BlacklistPage(),
-    //   binding: BlacklistBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.ADD_MY_METHOD,
+      page: () => AddMyMethodPage(),
+      binding: AddMyMethodBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.BLACKLIST,
+      page: () => BlacklistPage(),
+      binding: BlacklistBinding(),
+    ),
     // GetPage(
     //   name: AppRoutes.ABOUT_US,
     //   page: () => AboutUsPage(),
@@ -497,5 +503,10 @@ class AppPages {
     //   page: () => DoBySpeechPage(),
     //   binding: DoBySpeechBinding(),
     // ),
+    GetPage(
+      name: AppRoutes.YSXYPAGE,
+      page: () => YsxyPage(),
+      binding: YsxyBinding(),
+    ),
   ];
 }

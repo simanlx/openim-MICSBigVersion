@@ -86,4 +86,6 @@ class Urls {
   //智能定位
   static var updataPos = "${Config.bkrsApiUrl()}/im/point/add";
 
+  static var getAppVersionInfo = "${Config.bkrsApiUrl()}/im/version";
+
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:mics_big_version/src/pages/server_config/server_config_binding.dart';
+import 'package:mics_big_version/src/pages/server_config/server_config_view.dart';
 
 import '../../common/apis.dart';
 import '../../core/controller/im_controller.dart';
@@ -91,5 +93,9 @@ class LoginLogic extends GetxController {
       print('login e: $e');
     } finally {}
     return false;
+  }
+
+  toServerConfig() {
+    Get.to(() => ServerConfigPage(), binding: ServerConfigBinding());
   }
 }

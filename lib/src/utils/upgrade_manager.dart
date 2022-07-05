@@ -1,16 +1,21 @@
 import 'dart:io';
 
 import 'package:app_installer/app_installer.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_openim_widget/flutter_openim_widget.dart';
 import 'package:get/get.dart';
+import 'package:mics_big_version/src/common/apis.dart';
+import 'package:mics_big_version/src/models/AppVersionInfo.dart';
+import 'package:mics_big_version/src/models/upgrade_info.dart';
+import 'package:mics_big_version/src/utils/VersionUtil.dart';
+import 'package:mics_big_version/src/widgets/im_widget.dart';
+import 'package:mics_big_version/src/widgets/loading_view.dart';
+import 'package:mics_big_version/src/widgets/upgrade_view.dart';
+import 'package:mics_big_version/src/widgets/upgrade_view_bkrs.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../common/apis.dart';
-import '../models/upgrade_info.dart';
-import '../widgets/im_widget.dart';
-import '../widgets/loading_view.dart';
-import '../widgets/upgrade_view.dart';
 import 'data_persistence.dart';
 import 'http_util.dart';
 import 'im_util.dart';
@@ -18,6 +23,7 @@ import 'im_util.dart';
 class UpgradeManger {
   PackageInfo? packageInfo;
   UpgradeInfoV2? upgradeInfoV2;
+  AppVersionInfo? appVersionInfo;
   var isShowUpgradeDialog = false;
   var isNowIgnoreUpdate = false;
   final subject = PublishSubject<double>();
@@ -41,6 +47,37 @@ class UpgradeManger {
       packageInfo = await PackageInfo.fromPlatform();
     }
   }
+
+  var ca = CancelToken();
+
+  void nowUpdateBkrs() async {
+    if (Platform.isAndroid) {
+      PermissionUtil.storage(() async {
+        var path = await IMUtil.createTempFile(
+          dir: 'apk',
+          fileName: '${packageInfo!.appName}.apk',
+        );
+        // ca.cancel();
+        ca = CancelToken();
+        HttpUtil.download(
+          appVersionInfo!.appUrl??"",
+          cachePath: path,
+          cancelToken: ca,
+          onProgress: (int count, int total) {
+            subject.add(count / total);
+            if (count == total) {
+              AppInstaller.installApk(path);
+            }
+          },
+        );
+      });
+    } else {
+      // if (await canLaunch(upgradeInfo!.url!)) {
+      //   launch(upgradeInfo!.url!);
+      // }
+    }
+  }
+
 
   void nowUpdate() async {
     if (Platform.isAndroid) {
@@ -66,6 +103,36 @@ class UpgradeManger {
       // }
     }
   }
+
+  void checkUpdateBkrs() async{
+    if (!Platform.isAndroid) return;
+    LoadingView.singleton.wrap(asyncFunction: () async {
+      await getAppInfo();
+      //1 pda 2 一体机
+      return Apis.getAppVersionInfo("2");
+    }).then((value){
+      appVersionInfo = value;
+      //比较是否可以升级
+      print("当前版本 ==>${packageInfo!.version}  最新版本 ==>${value.appCode}");
+      var canUpdate = VersionUtil.canUpdate(packageInfo!.version, value.appCode??"");
+      if(canUpdate){
+        //升级弹窗
+        var show = UpgradeViewV3(
+          key: UniqueKey(),
+          upgradeInfo: value,
+          packageInfo: packageInfo!,
+          onNow: nowUpdateBkrs,
+          onDismiss: cancenReq,
+          subject: subject,
+        );
+        Get.dialog(show,barrierDismissible:false);
+      }else{
+        IMWidget.showToast('已是最新版本');
+        return;
+      }
+    });
+  }
+
 
   void checkUpdate() async {
     if (!Platform.isAndroid) return;
@@ -115,5 +182,9 @@ class UpgradeManger {
         packageInfo!.version,
         upgradeInfoV2!.buildVersion!,
       ) <
-      0;
+          0;
+
+  void cancenReq() {
+    ca.cancel();
+  }
 }
