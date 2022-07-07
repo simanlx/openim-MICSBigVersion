@@ -82,11 +82,8 @@ class ZhpWebviewPage extends StatelessWidget {
             // };
           },
             onLoadStart: (InAppWebViewController controller, Uri? url){
-              print("InAppWebView onLoadStart");
               controller.addJavaScriptHandler(handlerName: "call", callback: (args){
-                print("111111111111111111");
                 if (args.length>0) {
-                  print("2222222222222222");
                   try{
                     var arg = args[0];
                     var webGiveCallBean = WebGiveCallBean.fromJson(json.decode(arg.toString()));
