@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_openim_live/flutter_openim_live.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:mics_big_version/src/models/WebGiveCallBean.dart';
 import 'package:mics_big_version/src/pages/home/contacts/contacts_logic.dart';
 import 'package:mics_big_version/src/pages/home/home_logic.dart';
 import 'package:mics_big_version/src/pages/home/work_bench/work_bench_logic.dart';
@@ -36,6 +37,28 @@ class SpeechServiceController extends GetxController{
       // androidApplyAudioAttributes: false,
       // handleAudioSessionActivation: false,
     );
+
+    ChannelManage().methodChannel.setMethodCallHandler((call)async{
+      print("呼叫 进入了回调");
+      if (call.method == "webMethodCall") {
+        try{
+          var webGiveCallBean = WebGiveCallBean.fromJson(json.decode(call.arguments));
+          var uidList = <String>[];
+          webGiveCallBean.callList!.forEach((element) {
+            uidList.add(element.account??"");
+          });
+          //视频通话
+          imLogic.call(
+            uidList.length>1?CallObj.group:CallObj.single,
+            ((webGiveCallBean.type??false)?CallType.video:CallType.audio),
+            null,
+            uidList,
+          );
+        }catch(e){
+          print("呼叫错误 $e");
+        }
+      }
+    });
 
 
     ChannelManage().eventChannel.receiveBroadcastStream().listen((event) {

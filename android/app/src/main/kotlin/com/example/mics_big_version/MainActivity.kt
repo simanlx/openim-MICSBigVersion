@@ -39,6 +39,9 @@ class MainActivity: FlutterActivity(), RecognizerListener {
     }
 
     private fun setupMethodChannel() {
+        LiveEventBus.get("webMethodCall", String::class.java).observe(this){
+            methodChannel?.invokeMethod("webMethodCall",it)
+        }
         LiveEventBus.get("initSpeechSuccess", Boolean::class.java).observe(this) { initListener() }
         eventChannel?.setStreamHandler(object :EventChannel.StreamHandler{
             override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {

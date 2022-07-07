@@ -61,6 +61,7 @@
         android:label="@string/app_name">
         <activity
             android:name=".ZhpActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="false" />
         <activity

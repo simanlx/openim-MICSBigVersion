@@ -6,6 +6,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:mics_big_version/src/core/controller/SpeechServiceController.dart';
 import 'package:mics_big_version/src/res/strings.dart';
 import 'package:mics_big_version/src/routes/app_pages.dart';
+import 'package:mics_big_version/src/utils/ChannelManage.dart';
 import 'package:mics_big_version/src/utils/logger_util.dart';
 import 'package:mics_big_version/src/widgets/app_view.dart';
 

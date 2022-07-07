@@ -661,9 +661,9 @@ class WorkbenchLogic extends GetxController {
 
   void skipZhp() {
     // // var url = "https://ting.raisound.com/mics?token=${token}&phone = ${imLogic.userInfo.value.phoneNumber}";
-    // var url = "https://ting.raisound.com/mics/";
+    var url = "https://ting.raisound.com/test_mics/#/home/?token=$token&fromAndroid=true";
     // // var url = "https://www.baidu.com";
     // methodChannel.invokeMethod("to_zhp_activity",url);
-    Get.toNamed(AppRoutes.ZHP_WEBVIEW);
+    Get.toNamed(AppRoutes.ZHP_WEBVIEW,arguments: {"url":url});
   }
 }

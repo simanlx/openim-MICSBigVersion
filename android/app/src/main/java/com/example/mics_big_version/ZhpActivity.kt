@@ -13,6 +13,7 @@ class ZhpActivity : FlutterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_zhp)
+        AndroidBug5497Workaround.assistActivity(this)
         initView()
     }
 
@@ -70,6 +71,8 @@ class ZhpActivity : FlutterActivity() {
         val url = intent.getStringExtra("url")
         Log.d("webView","webView url" + url)
         webView.loadUrl(url?:"")
+
+        webView.addJavascriptInterface(JsCallAndroidMethod(),"android")
     }
 
 }

@@ -7,6 +7,7 @@ import 'package:flutter_openim_widget/flutter_openim_widget.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:mics_big_version/src/sdk_extension/message_manager.dart';
+import 'package:mics_big_version/src/utils/ChannelManage.dart';
 import 'package:mics_big_version/src/widgets/im_widget.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
@@ -212,7 +213,7 @@ mixin OpenLive {
     );
 
     LiveClient.call(
-      ctx: Get.overlayContext!,
+      ctx:Get.overlayContext!,
       eventChangedSubject: signalingSubject,
       inviterUserID: OpenIM.iMManager.uid,
       groupID: groupID,

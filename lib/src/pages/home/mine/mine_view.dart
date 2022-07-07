@@ -116,22 +116,23 @@ class MinePage extends StatelessWidget {
                 },),
               ),
               SizedBox(width: 10.w),
-              Text(loginInfo?.realName??"",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold),),
-              Padding(padding: EdgeInsets.only(top: 1.h),child: Text(" | ${loginInfo?.job}",style: TextStyle(fontSize: 12.sp,fontWeight: FontWeight.bold)),),
+              Text(loginInfo?.realName??"",style: TextStyle(fontSize: 16.sp),),
+              Padding(padding: EdgeInsets.only(top: 1.h),child: Text(" | ${loginInfo?.job}",style: TextStyle(fontSize: 14.sp)),),
             ],
           ),),
+          SizedBox(height: 10.h),
           GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: (){
               logic.index.value = 0;
             },
             child: Container(
-              margin: EdgeInsets.only(top: 10.h),
+              margin: EdgeInsets.only(top: 5.h),
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("我的信息",style: TextStyle(fontSize: 12.sp,color: PageStyle.c_333333,fontWeight: FontWeight.bold)),
+                  Text("我的信息",style: TextStyle(fontSize: 14.sp,color: PageStyle.c_333333)),
                   Image.asset(
                     ImageRes.ic_moreArrow,
                     width: 16.w,
@@ -141,6 +142,7 @@ class MinePage extends StatelessWidget {
               ),
             )
           ),
+          Container(height: 0.5.h,color: PageStyle.c_e8e8e8, margin: EdgeInsets.only(top: 5.h,left: 10.h,right: 10.h)),
           GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: (){
@@ -148,12 +150,12 @@ class MinePage extends StatelessWidget {
             },
             child:
             Container(
-              margin: EdgeInsets.only(top: 10.h),
+              margin: EdgeInsets.only(top: 5.h),
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               child:Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("账号设置",style: TextStyle(fontSize: 12.sp,color: PageStyle.c_333333,fontWeight: FontWeight.bold)),
+                  Text("账号设置",style: TextStyle(fontSize: 14.sp,color: PageStyle.c_333333)),
                   Image.asset(
                     ImageRes.ic_moreArrow,
                     width: 16.w,
@@ -163,19 +165,19 @@ class MinePage extends StatelessWidget {
               ),
             )
           ),
-
+          Container(height: 0.5.h,color: PageStyle.c_e8e8e8, margin: EdgeInsets.only(top: 5.h,left: 10.h,right: 10.h)),
           GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: (){
               logic.index.value = 2;
             },
             child: Container(
-              margin: EdgeInsets.only(top: 10.h),
+              margin: EdgeInsets.only(top: 5.h),
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               child:Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("关于我们",style: TextStyle(fontSize: 12.sp,color: PageStyle.c_333333,fontWeight: FontWeight.bold)),
+                  Text("关于我们",style: TextStyle(fontSize: 14.sp,color: PageStyle.c_333333)),
                   Image.asset(
                     ImageRes.ic_moreArrow,
                     width: 16.w,
@@ -185,19 +187,19 @@ class MinePage extends StatelessWidget {
               ),
             )
           ),
-
+          Container(height: 0.5.h,color: PageStyle.c_e8e8e8, margin: EdgeInsets.only(top: 5.h,left: 10.h,right: 10.h)),
           GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: (){
               logic.logout();
             },
             child: Container(
-              margin: EdgeInsets.only(top: 10.h),
+              margin: EdgeInsets.only(top: 5.h),
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("退出登录",style: TextStyle(fontSize: 12.sp,color: PageStyle.c_333333,fontWeight: FontWeight.bold)),
+                  Text("退出登录",style: TextStyle(fontSize: 14.sp,color: PageStyle.c_333333)),
                   Image.asset(
                     ImageRes.ic_moreArrow,
                     width: 16.w,
@@ -271,7 +273,7 @@ class MinePage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 10.h),
-        Text("个人信息",style: TextStyle(fontSize: 15.sp,color: PageStyle.c_333333,fontWeight: FontWeight.bold),),
+        Text("个人信息",style: TextStyle(fontSize: 16.sp,color: PageStyle.c_333333),),
         // SizedBox(height: 20.h,),
         // Row(
         //   children: [
