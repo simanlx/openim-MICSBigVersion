@@ -21,6 +21,7 @@ import 'package:mics_big_version/src/pages/system_notice/SystemNoticeListPage.da
 import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_detail/MedicalMemoDetailPage.dart';
 import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_main_logic.dart';
 import 'package:mics_big_version/src/pages/ylbw/ylbw_main/ylbw_main_view.dart';
+import 'package:mics_big_version/src/res/images.dart';
 import 'package:mics_big_version/src/res/strings.dart';
 import 'package:mics_big_version/src/routes/app_navigator.dart';
 import 'package:mics_big_version/src/routes/app_pages.dart';
@@ -533,7 +534,7 @@ class WorkbenchLogic extends GetxController {
       list2.clear();
       list2.addAll(realList);
 
-      list2.add(CommonPartInfo(id: 666,name: "智慧屏",appUrl: "zhp"));
+      list2.add(CommonPartInfo(id: 666,name: "智慧屏",appUrl: "zhp",icon: ImageRes.ic_zhp));
     }
     refreshController.refreshCompleted(resetFooterState: true);
   }

@@ -150,4 +150,5 @@ class ImageRes {
 
   static const ic_home_main_bg = '${_dir}home_main_bg.png';
   static const ic_home_main_logo = '${_dir}home_main_logo.png';
+  static const ic_zhp = '${_dir}ic_zhp.png';
 }

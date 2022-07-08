@@ -7,7 +7,10 @@ import 'package:mics_big_version/src/pages/home/conversation/conversation_logic.
 import 'package:mics_big_version/src/pages/home/work_bench/work_bench_logic.dart';
 import 'package:mics_big_version/src/res/strings.dart';
 import 'package:mics_big_version/src/res/styles.dart';
+import 'package:mics_big_version/src/widgets/avatar_view.dart';
 import 'package:mics_big_version/src/widgets/bkrs/ConversationItemViewBkrs.dart' as conversationItemViewBkrs;
+import 'package:mics_big_version/src/widgets/im_widget.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'workbench_main_logic.dart';
 
@@ -36,15 +39,36 @@ class WorkbenchMainPage extends StatelessWidget {
               Expanded(child: Obx(()=>Column(
                 children: [
                   SizedBox(height: 20.h,),
-                  Expanded(child: GridView.builder(
-                      itemCount: logic.list2.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 1.0,
-                        crossAxisCount: 4,
-                      ),
-                      itemBuilder: (_, index){
-                        return _buildCommonPart(index);
-                      }))
+                  Expanded(child:
+
+                  SmartRefresher(controller: logic.refreshController,
+                    enablePullDown: true,
+                    enablePullUp: false,
+                    header: IMWidget.buildHeader(),
+                    footer: IMWidget.buildFooter(),
+                    onRefresh: logic.onRefresh,
+                    child:  GridView.builder(
+                        itemCount: logic.list2.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          childAspectRatio: 1.0,
+                          crossAxisCount: 4,
+                        ),
+                        itemBuilder: (_, index){
+                          return _buildCommonPart(index);
+                        }),
+
+                  )
+                  // GridView.builder(
+                  //     itemCount: logic.list2.length,
+                  //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //       childAspectRatio: 1.0,
+                  //       crossAxisCount: 4,
+                  //     ),
+                  //     itemBuilder: (_, index){
+                  //       return _buildCommonPart(index);
+                  //     })
+
+                  )
                 ],
               )))
             ],
@@ -175,21 +199,30 @@ class WorkbenchMainPage extends StatelessWidget {
   }
 
   /// 系统通知自定义头像
+  /// 系统通知自定义头像
   Widget? _buildCustomAvatar(index) {
     var info = logic.list.elementAt(index);
     if (info.conversationType == ConversationType.notification) {
       return Container(
         color: PageStyle.c_5496EB,
-        height: 48.h,
-        width: 48.h,
+        height: 26.h,
+        width: 26.h,
         alignment: Alignment.center,
         child: FaIcon(
           FontAwesomeIcons.solidBell,
           color: PageStyle.c_FFFFFF,
         ),
       );
+    } else {
+      return AvatarView(
+        size: 26.h,
+        url: info.faceURL,
+        isUserGroup: logic.isUserGroup(index),
+        text: info.showName,
+        textStyle: PageStyle.ts_FFFFFF_16sp,
+      );
     }
-    return null;
+    // return null;
   }
 
   Widget _buildCommonPart(int index){
@@ -223,6 +256,16 @@ class WorkbenchMainPage extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
+          if(item.appUrl == "zhp")
+          Container(
+            padding: EdgeInsets.all(4.h),
+            child: Image.asset(logic.list2[index].icon??"",width: 44.h,height: 44.h,errorBuilder: (BuildContext context,
+                Object error,
+                StackTrace? stackTrace){
+              return Container(width: 52.h,height: 52.h);
+            }),
+          ),
+          if(item.appUrl != "zhp")
           Image.network(logic.list2[index].icon??"",width: 52.h,height: 52.h,errorBuilder: (BuildContext context,
               Object error,
               StackTrace? stackTrace){

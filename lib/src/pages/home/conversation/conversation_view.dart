@@ -146,8 +146,8 @@ class ConversationPage extends StatelessWidget {
     if (info.conversationType == ConversationType.notification) {
       return Container(
         color: PageStyle.c_5496EB,
-        height: 28.h,
-        width: 28.h,
+        height: 26.h,
+        width: 26.h,
         alignment: Alignment.center,
         child: FaIcon(
           FontAwesomeIcons.solidBell,
@@ -156,7 +156,7 @@ class ConversationPage extends StatelessWidget {
       );
     } else {
       return AvatarView(
-        size: 28.h,
+        size: 26.h,
         url: info.faceURL,
         isUserGroup: logic.isUserGroup(index),
         text: info.showName,

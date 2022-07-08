@@ -95,37 +95,58 @@ class SpeechServiceController extends GetxController{
           });
 
         }else if(speechText.value.startsWith("新建医疗备忘")){
+          while(Get.currentRoute != AppRoutes.HOME){
+            Get.back();
+          }
           if (homeLogic.index!=0) {
             homeLogic.switchTab(0);
           }
           workLogic.skipYlbw(autoAdd: true);
         }else if(speechText.value.startsWith("新建语音备忘")){
+          while(Get.currentRoute != AppRoutes.HOME){
+            Get.back();
+          }
           if (homeLogic.index!=0) {
             homeLogic.switchTab(0);
           }
           workLogic.skipYlbw(autoAddAndRecord: true);
         }else if(speechText.value.startsWith("打开系统通知")){
+          while(Get.currentRoute != AppRoutes.HOME){
+            Get.back();
+          }
           if (homeLogic.index!=0) {
             homeLogic.switchTab(0);
           }
           workLogic.skipXttz();
         }else if(speechText.value.startsWith("打开通讯录")){
           final logic = Get.find<ContactsLogic>();
+          while(Get.currentRoute != AppRoutes.HOME){
+            Get.back();
+          }
           if (homeLogic.index!=2) {
             homeLogic.switchTab(2);
           }
           logic.showDepartPage("","深圳市人民医院");
         }else if(speechText.value.startsWith("打开医疗备忘")){
+          while(Get.currentRoute != AppRoutes.HOME){
+            Get.back();
+          }
           if (homeLogic.index!=0) {
             homeLogic.switchTab(0);
           }
           workLogic.skipYlbw();
         }else if(speechText.value.startsWith("打开患者管理")){
+          while(Get.currentRoute != AppRoutes.HOME){
+            Get.back();
+          }
           if (homeLogic.index!=0) {
             homeLogic.switchTab(0);
           }
           workLogic.skipHzgl();
         }else if(speechText.value.startsWith("打开收藏")){
+          while(Get.currentRoute != AppRoutes.HOME){
+            Get.back();
+          }
           if (homeLogic.index!=0) {
             homeLogic.switchTab(0);
           }

@@ -19,6 +19,23 @@ class MineLogic extends GetxController {
   var index = 0.obs;
   var callIndex = 0.obs;
 
+
+  @override
+  void onInit() {
+    imLogic.onKickedOfflineSubject.listen((value) {
+      Get.snackbar(StrRes.accountWarn, StrRes.accountException);
+      kickedOffline();
+    });
+    super.onInit();
+  }
+
+  void kickedOffline() async {
+    // await DataPersistence.removeAccountInfo();
+    await DataPersistence.removeLoginCertificate();
+    await jPushLogic.logout();
+    AppNavigator.startLogin();
+  }
+
   void switchIndex(int i) {
     index.value = i;
   }
