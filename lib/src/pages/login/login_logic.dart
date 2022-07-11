@@ -57,14 +57,14 @@ class LoginLogic extends GetxController {
   }
 
   login() async {
-    if (index.value == 0 && !IMUtil.isMobile(phoneCtrl.text)) {
-      IMWidget.showToast(StrRes.plsInputRightPhone);
-      return;
-    }
-    if (index.value == 1 && !GetUtils.isEmail(emailCtrl.text)) {
-      IMWidget.showToast(StrRes.plsInputRightEmail);
-      return;
-    }
+    // if (index.value == 0 && !IMUtil.isMobile(phoneCtrl.text)) {
+    //   IMWidget.showToast(StrRes.plsInputRightPhone);
+    //   return;
+    // }
+    // if (index.value == 1 && !GetUtils.isEmail(emailCtrl.text)) {
+    //   IMWidget.showToast(StrRes.plsInputRightEmail);
+    //   return;
+    // }
     LoadingView.singleton.wrap(asyncFunction: () async {
       var suc = await _login();
       if (suc) {

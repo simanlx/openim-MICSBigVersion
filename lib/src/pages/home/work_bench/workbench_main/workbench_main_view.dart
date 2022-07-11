@@ -258,8 +258,8 @@ class WorkbenchMainPage extends StatelessWidget {
         children: [
           if(item.appUrl == "zhp")
           Container(
-            padding: EdgeInsets.all(4.h),
-            child: Image.asset(logic.list2[index].icon??"",width: 44.h,height: 44.h,errorBuilder: (BuildContext context,
+            // padding: EdgeInsets.all(4.h),
+            child: Image.asset(logic.list2[index].icon??"",width: 52.h,height: 52.h,errorBuilder: (BuildContext context,
                 Object error,
                 StackTrace? stackTrace){
               return Container(width: 52.h,height: 52.h);

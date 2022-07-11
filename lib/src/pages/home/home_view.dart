@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
           ),
           Obx(()=>Visibility(
               visible: logic.index == 0?workbenchLogic.stackList.length == 1:true,
-              child: MoveAbleWidget(child: SpeechListeningWidget(), stackKey: glkey,offsetX: 900.w,offsetY: 800.h)))
+              child: MoveAbleWidget(child: SpeechListeningWidget(),key: UniqueKey(), stackKey: glkey,offsetX: 900.w,offsetY: 800.h)))
         ],
       )),
     );

@@ -51,7 +51,7 @@ class Config {
 
   /// ip
   static const defaultIp = "101.43.113.42"; //43.128.5.63"; //121.37.25.71 //101.43.113.42(汪群的)
-  static const defaultAddress = "https://mics-dev.raisound.com";
+  static const defaultAddress = "https://mics-sz.raisound.com";
 
   /// 服务器IP
   static String serverIp() {
@@ -98,7 +98,7 @@ class Config {
       print('缓存wsUrl: $url');
     }
     // return url ?? 'ws://$defaultIp:10001';
-    return url ?? 'wss://mics-dev.raisound.com/msg_gateway';
+    return url ?? 'wss://${defaultAddress.replaceAll("https://", "").replaceAll("http://", "")}/msg_gateway';
   }
 
   // /// 音视频通话地址
@@ -116,7 +116,7 @@ class Config {
 
   //北科瑞声自己的接口
   static String bkrsApiUrl() {
-    return "$defaultAddress/vserver";
+    return "${imApiUrl()}/vserver";
   }
 
   /// 默认公司配置

@@ -51,7 +51,12 @@ class LoginPage extends StatelessWidget {
                   hintText: "请输入手机号",
                   hintStyle: PageStyle.ts_333333_opacity40p_12sp,
                 ),
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],keyboardType: TextInputType.number,maxLength: 11,),
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(RegExp("[a-zA-Z0-9]")),
+                  // FilteringTextInputFormatter.digitsOnly
+                ],
+
+                maxLength: 11,),
               SizedBox(height: 20.h),
               Obx(() => PwdInputBox(
                 controller: logic.pwdCtrl,

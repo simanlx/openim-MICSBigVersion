@@ -44,10 +44,12 @@ class _MoveAbleWidgetState extends State<MoveAbleWidget> {
     // 绘制完毕监听
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       // 获取stack宽高
-      RenderBox? stackRenderBox =
-      widget.stackKey.currentContext?.findRenderObject() as RenderBox?;
-      stackWidth = stackRenderBox?.size.width ?? 0;
-      stackHeight = stackRenderBox?.size.height ?? 0;
+      // RenderBox? stackRenderBox =
+      // widget.stackKey.currentContext?.findRenderObject() as RenderBox?;
+      // stackWidth = stackRenderBox?.size.width ?? 0;
+      // stackHeight = stackRenderBox?.size.height ?? 0;
+      stackWidth = 1280;
+      stackHeight = 720;
 
       // 获取child宽高
       RenderBox? childRenderBox =
